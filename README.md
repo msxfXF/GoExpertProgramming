@@ -1,4 +1,4 @@
-# 《GO专家编程》
+# 《GO专家编程》 Fork form sftfjugg
 这是一本开源的Go语言进阶图书，帮助初级GO程序员成为资深专家，欢迎加入~
 
 # 源文件组织形式
@@ -26,4 +26,5 @@
 
 
 # 开始阅读
-[开始阅读](https://rainbowmango.gitbook.io/go/)
+下载pdf、epub、mobi文件阅读
+[原版阅读](https://rainbowmango.gitbook.io/go/)

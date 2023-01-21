@@ -1,0 +1,1624 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.1 defer · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2.1.1-defer-recover.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../FOREWORD.html">
+            
+                <a href="../FOREWORD.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter01/">
+            
+                <a href="../chapter01/">
+            
+                    
+                    第一章：常见数据结构实现原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter01/1.1-chan.html">
+            
+                <a href="../chapter01/1.1-chan.html">
+            
+                    
+                    1.1 chan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter01/1.2-slice.html">
+            
+                <a href="../chapter01/1.2-slice.html">
+            
+                    
+                    1.2 slice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter01/1.3-map.html">
+            
+                <a href="../chapter01/1.3-map.html">
+            
+                    
+                    1.3 map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter01/1.4-struct.html">
+            
+                <a href="../chapter01/1.4-struct.html">
+            
+                    
+                    1.4 struct
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter01/1.5-iota.html">
+            
+                <a href="../chapter01/1.5-iota.html">
+            
+                    
+                    1.5 iota
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter01/1.6-string.html">
+            
+                <a href="../chapter01/1.6-string.html">
+            
+                    
+                    1.6 string
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第二章：常见控制结构实现原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="2.1-defer.html">
+            
+                <a href="2.1-defer.html">
+            
+                    
+                    2.1 defer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="2.1.1-defer-recover.html">
+            
+                <a href="2.1.1-defer-recover.html">
+            
+                    
+                    2.1.1 defer 陷阱
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="2.2-select.html">
+            
+                <a href="2.2-select.html">
+            
+                    
+                    2.2 select
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="2.3-range.html">
+            
+                <a href="2.3-range.html">
+            
+                    
+                    2.3 range
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="2.4-mutex.html">
+            
+                <a href="2.4-mutex.html">
+            
+                    
+                    2.4 mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="2.5-rwmutex.html">
+            
+                <a href="2.5-rwmutex.html">
+            
+                    
+                    2.5 rwmutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter03/">
+            
+                <a href="../chapter03/">
+            
+                    
+                    第三章：协程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../chapter03/3.1-go_schedule.html">
+            
+                <a href="../chapter03/3.1-go_schedule.html">
+            
+                    
+                    3.1 协程调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../chapter04/">
+            
+                <a href="../chapter04/">
+            
+                    
+                    第四章：内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter04/4.1-memory_alloc.html">
+            
+                <a href="../chapter04/4.1-memory_alloc.html">
+            
+                    
+                    4.1 内存分配原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../chapter04/4.2-garbage_collection.html">
+            
+                <a href="../chapter04/4.2-garbage_collection.html">
+            
+                    
+                    4.2 垃圾回收原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../chapter04/4.3-escape_analysis.html">
+            
+                <a href="../chapter04/4.3-escape_analysis.html">
+            
+                    
+                    4.3 逃逸分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../chapter05/">
+            
+                <a href="../chapter05/">
+            
+                    
+                    第五章：并发控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../chapter05/5.1-channel.html">
+            
+                <a href="../chapter05/5.1-channel.html">
+            
+                    
+                    5.1 Channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../chapter05/5.2-waitgroup.html">
+            
+                <a href="../chapter05/5.2-waitgroup.html">
+            
+                    
+                    5.2 WaitGroup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../chapter05/5.3-context.html">
+            
+                <a href="../chapter05/5.3-context.html">
+            
+                    
+                    5.3 Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../chapter06/">
+            
+                <a href="../chapter06/">
+            
+                    
+                    第六章：反射
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../chapter06/6.1-reflect.html">
+            
+                <a href="../chapter06/6.1-reflect.html">
+            
+                    
+                    6.1 反射机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../chapter07/">
+            
+                <a href="../chapter07/">
+            
+                    
+                    第七章：go test
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../chapter07/7.1-foreword.html">
+            
+                <a href="../chapter07/7.1-foreword.html">
+            
+                    
+                    7.1 快速开始
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../chapter07/7.1.1-unit_test.html">
+            
+                <a href="../chapter07/7.1.1-unit_test.html">
+            
+                    
+                    7.1.1 单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.2" data-path="../chapter07/7.1.2-benchmark_test.html">
+            
+                <a href="../chapter07/7.1.2-benchmark_test.html">
+            
+                    
+                    7.1.2 性能测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.3" data-path="../chapter07/7.1.3-example_test.html">
+            
+                <a href="../chapter07/7.1.3-example_test.html">
+            
+                    
+                    7.1.3 示例测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../chapter07/7.2-foreword.html">
+            
+                <a href="../chapter07/7.2-foreword.html">
+            
+                    
+                    7.2 进阶测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="../chapter07/7.2.1-sub_test.html">
+            
+                <a href="../chapter07/7.2.1-sub_test.html">
+            
+                    
+                    7.2.1 子测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="../chapter07/7.2.2-main_test.html">
+            
+                <a href="../chapter07/7.2.2-main_test.html">
+            
+                    
+                    7.2.2 Main测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../chapter07/7.3-foreword.html">
+            
+                <a href="../chapter07/7.3-foreword.html">
+            
+                    
+                    7.3 实现原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.3.1" data-path="../chapter07/7.3.1-common.html">
+            
+                <a href="../chapter07/7.3.1-common.html">
+            
+                    
+                    7.3.1 testing.common公共类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.2" data-path="../chapter07/7.3.2-tb_interface.html">
+            
+                <a href="../chapter07/7.3.2-tb_interface.html">
+            
+                    
+                    7.3.2 testing.TB接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.3" data-path="../chapter07/7.3.3-unit.html">
+            
+                <a href="../chapter07/7.3.3-unit.html">
+            
+                    
+                    7.3.3 单元测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.4" data-path="../chapter07/7.3.4-benchmark.html">
+            
+                <a href="../chapter07/7.3.4-benchmark.html">
+            
+                    
+                    7.3.4 性能测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.5" data-path="../chapter07/7.3.5-example.html">
+            
+                <a href="../chapter07/7.3.5-example.html">
+            
+                    
+                    7.3.5 示例测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.6" data-path="../chapter07/7.3.6-main.html">
+            
+                <a href="../chapter07/7.3.6-main.html">
+            
+                    
+                    7.3.6 Main测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.7" data-path="../chapter07/7.3.7-go_test.html">
+            
+                <a href="../chapter07/7.3.7-go_test.html">
+            
+                    
+                    7.3.7 go test工作机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../chapter07/7.4-foreword.html">
+            
+                <a href="../chapter07/7.4-foreword.html">
+            
+                    
+                    7.4 go test参数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.4.1" data-path="../chapter07/7.4.1-parameter.html">
+            
+                <a href="../chapter07/7.4.1-parameter.html">
+            
+                    
+                    7.4.1 参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../chapter08/">
+            
+                <a href="../chapter08/">
+            
+                    
+                    第八章：httptest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../chapter09/">
+            
+                <a href="../chapter09/">
+            
+                    
+                    第九章：定时器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../chapter09/9.1-foreword.html">
+            
+                <a href="../chapter09/9.1-foreword.html">
+            
+                    
+                    9.1 Timer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1.1" data-path="../chapter09/9.1.1-timer_quick_start.html">
+            
+                <a href="../chapter09/9.1.1-timer_quick_start.html">
+            
+                    
+                    9.1.1 快速开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.1.2" data-path="../chapter09/9.1.2-timer_principle.html">
+            
+                <a href="../chapter09/9.1.2-timer_principle.html">
+            
+                    
+                    9.1.2 实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../chapter09/9.2-foreword.html">
+            
+                <a href="../chapter09/9.2-foreword.html">
+            
+                    
+                    9.2 Ticker
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.2.1" data-path="../chapter09/9.2.1-ticker_quick_start.html">
+            
+                <a href="../chapter09/9.2.1-ticker_quick_start.html">
+            
+                    
+                    9.2.1 快速开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2.2" data-path="../chapter09/9.2.2-ticker_principle.html">
+            
+                <a href="../chapter09/9.2.2-ticker_principle.html">
+            
+                    
+                    9.2.2 实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../chapter09/9.3-foreword.html">
+            
+                <a href="../chapter09/9.3-foreword.html">
+            
+                    
+                    9.3 timer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.3.1" data-path="../chapter09/9.3.1-timersproc_principle.html">
+            
+                <a href="../chapter09/9.3.1-timersproc_principle.html">
+            
+                    
+                    9.3.1 实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../chapter09/9.4-foreword.html">
+            
+                <a href="../chapter09/9.4-foreword.html">
+            
+                    
+                    9.4 案例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.4.1" data-path="../chapter09/9.4.1-ticker_leak_case.html">
+            
+                <a href="../chapter09/9.4.1-ticker_leak_case.html">
+            
+                    
+                    9.4.1 开源库资源泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../chapter10/">
+            
+                <a href="../chapter10/">
+            
+                    
+                    第十章：语法糖
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../chapter10/1-foreword.html">
+            
+                <a href="../chapter10/1-foreword.html">
+            
+                    
+                    10.1 简短变量声明
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1.1" data-path="../chapter10/1.1-warmup.html">
+            
+                <a href="../chapter10/1.1-warmup.html">
+            
+                    
+                    10.1.1 热身测验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.2" data-path="../chapter10/1.2-rules.html">
+            
+                <a href="../chapter10/1.2-rules.html">
+            
+                    
+                    10.1.2 使用规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../chapter10/2-variadic.html">
+            
+                <a href="../chapter10/2-variadic.html">
+            
+                    
+                    10.2 可变参函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../chapter11/">
+            
+                <a href="../chapter11/">
+            
+                    
+                    第十一章：GO语言版本管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../chapter11/1.1-install.html">
+            
+                <a href="../chapter11/1.1-install.html">
+            
+                    
+                    11.1 GO语言安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../chapter11/1.2-uninstall.html">
+            
+                <a href="../chapter11/1.2-uninstall.html">
+            
+                    
+                    11.2 GO语言卸载
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../chapter12/">
+            
+                <a href="../chapter12/">
+            
+                    
+                    第十二章：GO依赖管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../chapter12/1-gopath.html">
+            
+                <a href="../chapter12/1-gopath.html">
+            
+                    
+                    12.1 GOPATH
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../chapter12/2-vendor.html">
+            
+                <a href="../chapter12/2-vendor.html">
+            
+                    
+                    12.2 vendor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../chapter12/3-foreword.html">
+            
+                <a href="../chapter12/3-foreword.html">
+            
+                    
+                    12.3 module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.3.1" data-path="../chapter12/3.1-basic.html">
+            
+                <a href="../chapter12/3.1-basic.html">
+            
+                    
+                    12.3.1 基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.2" data-path="../chapter12/3.2-quickstart.html">
+            
+                <a href="../chapter12/3.2-quickstart.html">
+            
+                    
+                    12.3.2 快速实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.3" data-path="../chapter12/3.3-module-replace.html">
+            
+                <a href="../chapter12/3.3-module-replace.html">
+            
+                    
+                    12.3.3 replace指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.4" data-path="../chapter12/3.4-module-exclude.html">
+            
+                <a href="../chapter12/3.4-module-exclude.html">
+            
+                    
+                    12.3.4 exclude指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.5" data-path="../chapter12/3.5-module-indirect.html">
+            
+                <a href="../chapter12/3.5-module-indirect.html">
+            
+                    
+                    12.3.5 indirect含义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.6" data-path="../chapter12/3.6-module-version.html">
+            
+                <a href="../chapter12/3.6-module-version.html">
+            
+                    
+                    12.3.6 版本选择机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.7" data-path="../chapter12/3.7-module-incompatible.html">
+            
+                <a href="../chapter12/3.7-module-incompatible.html">
+            
+                    
+                    12.3.7 incompatible
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.8" data-path="../chapter12/3.8-module-pseudo-version.html">
+            
+                <a href="../chapter12/3.8-module-pseudo-version.html">
+            
+                    
+                    12.3.8 伪版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.9" data-path="../chapter12/3.9-module-storage.html">
+            
+                <a href="../chapter12/3.9-module-storage.html">
+            
+                    
+                    12.3.9 依赖包存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.10" data-path="../chapter12/3.10-module-go-sum.html">
+            
+                <a href="../chapter12/3.10-module-go-sum.html">
+            
+                    
+                    12.3.10 依赖包校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../appendix/">
+            
+                <a href="../appendix/">
+            
+                    
+                    附录一：编程陷阱
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../appendix/append.html">
+            
+                <a href="../appendix/append.html">
+            
+                    
+                    1 切片追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../appendix/unpinned.html">
+            
+                <a href="../appendix/unpinned.html">
+            
+                    
+                    2 循环变量绑定
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.1 defer</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="1-&#x524D;&#x8A00;">1. &#x524D;&#x8A00;</h1>
+<p>defer&#x8BED;&#x53E5;&#x7528;&#x4E8E;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x6BCF;&#x6B21;defer&#x90FD;&#x4F1A;&#x628A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x538B;&#x5165;&#x6808;&#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x524D;&#x518D;&#x628A;&#x5EF6;&#x8FDF;&#x7684;&#x51FD;&#x6570;&#x53D6;&#x51FA;&#x5E76;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x63CF;&#x8FF0;&#xFF0C;&#x6211;&#x4EEC;&#x628A;&#x521B;&#x5EFA;defer&#x7684;&#x51FD;&#x6570;&#x79F0;&#x4E3A;&#x4E3B;&#x51FD;&#x6570;&#xFF0C;defer&#x8BED;&#x53E5;&#x540E;&#x9762;&#x7684;&#x51FD;&#x6570;&#x79F0;&#x4E3A;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x6709;&#x8F93;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x53EF;&#x80FD;&#x6765;&#x6E90;&#x4E8E;&#x5B9A;&#x4E49;defer&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x4E5F;&#x53EF;&#x80FD;&#x5F15;&#x7528;&#x4E3B;&#x51FD;&#x6570;&#x7528;&#x4E8E;&#x8FD4;&#x56DE;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x4F1A;&#x5F71;&#x54CD;&#x4E3B;&#x51FD;&#x6570;&#x7684;&#x4E00;&#x4E9B;&#x884C;&#x4E3A;&#xFF0C;&#x8FD9;&#x4E9B;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x4E86;&#x89E3;defer&#x7684;&#x89C4;&#x5219;&#x5F88;&#x5BB9;&#x6613;&#x51FA;&#x9519;&#x3002;</p>
+<p>&#x5176;&#x5B9E;&#x5B98;&#x65B9;&#x8BF4;&#x660E;&#x7684;defer&#x7684;&#x4E09;&#x4E2A;&#x539F;&#x5219;&#x5F88;&#x6E05;&#x695A;&#xFF0C;&#x672C;&#x8282;&#x8BD5;&#x56FE;&#x6C47;&#x603B;defer&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x5E76;&#x505A;&#x7B80;&#x5355;&#x8BF4;&#x660E;&#x3002;</p>
+<h1 id="2-&#x70ED;&#x8EAB;">2. &#x70ED;&#x8EAB;</h1>
+<p>&#x6309;&#x7167;&#x60EF;&#x4F8B;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x51E0;&#x4E2A;&#x6709;&#x610F;&#x601D;&#x7684;&#x9898;&#x76EE;&#xFF0C;&#x7528;&#x4E8E;&#x68C0;&#x9A8C;&#x5BF9;defer&#x7684;&#x4E86;&#x89E3;&#x7A0B;&#x5EA6;&#x3002;</p>
+<h2 id="21-&#x9898;&#x76EE;&#x4E00;">2.1 &#x9898;&#x76EE;&#x4E00;</h2>
+<p>&#x4E0B;&#x9762;&#x51FD;&#x6570;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> deferFuncParameter() {
+    <span class="hljs-keyword">var</span> aInt = <span class="hljs-number">1</span>
+
+    <span class="hljs-keyword">defer</span> fmt.Println(aInt)
+
+    aInt = <span class="hljs-number">2</span>
+    <span class="hljs-keyword">return</span>
+}
+</code></pre>
+<p>&#x9898;&#x76EE;&#x8BF4;&#x660E;&#xFF1A;<br>&#x51FD;&#x6570;deferFuncParameter()&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6574;&#x578B;&#x53D8;&#x91CF;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x4E3A;1&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;defer&#x8BED;&#x53E5;&#x6253;&#x5370;&#x51FA;&#x53D8;&#x91CF;&#x503C;&#xFF0C;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x53D8;&#x91CF;&#x503C;&#x4E3A;2.</p>
+<p>&#x53C2;&#x8003;&#x7B54;&#x6848;&#xFF1A;<br>&#x8F93;&#x51FA;1&#x3002;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;fmt.Println(aInt)&#x7684;&#x53C2;&#x6570;&#x5728;defer&#x8BED;&#x53E5;&#x51FA;&#x73B0;&#x65F6;&#x5C31;&#x5DF2;&#x7ECF;&#x786E;&#x5B9A;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x65E0;&#x8BBA;&#x540E;&#x9762;&#x5982;&#x4F55;&#x4FEE;&#x6539;aInt&#x53D8;&#x91CF;&#x90FD;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x3002;</p>
+<h2 id="22-&#x9898;&#x76EE;&#x4E8C;">2.2 &#x9898;&#x76EE;&#x4E8C;</h2>
+<p>&#x4E0B;&#x9762;&#x7A0B;&#x5E8F;&#x8F93;&#x51FA;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> printArray(array *[<span class="hljs-number">3</span>]<span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-keyword">range</span> array {
+        fmt.Println(array[i])
+    }
+}
+
+<span class="hljs-keyword">func</span> deferFuncParameter() {
+    <span class="hljs-keyword">var</span> aArray = [<span class="hljs-number">3</span>]<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+
+    <span class="hljs-keyword">defer</span> printArray(&amp;aArray)
+
+    aArray[<span class="hljs-number">0</span>] = <span class="hljs-number">10</span>
+    <span class="hljs-keyword">return</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    deferFuncParameter()
+}
+</code></pre>
+<p>&#x51FD;&#x6570;&#x8BF4;&#x660E;&#xFF1A;<br>&#x51FD;&#x6570;deferFuncParameter()&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x901A;&#x8FC7;defer&#x5EF6;&#x8FDF;&#x51FD;&#x6570;printArray()&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x6570;&#x7EC4;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002;printArray()&#x51FD;&#x6570;&#x63A5;&#x53D7;&#x6570;&#x7EC4;&#x7684;&#x6307;&#x9488;&#x5E76;&#x628A;&#x6570;&#x7EC4;&#x5168;&#x90E8;&#x6253;&#x5370;&#x51FA;&#x6765;&#x3002;</p>
+<p>&#x53C2;&#x8003;&#x7B54;&#x6848;&#xFF1A;<br>&#x8F93;&#x51FA;10&#x3001;2&#x3001;3&#x4E09;&#x4E2A;&#x503C;&#x3002;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;printArray()&#x7684;&#x53C2;&#x6570;&#x5728;defer&#x8BED;&#x53E5;&#x51FA;&#x73B0;&#x65F6;&#x5C31;&#x5DF2;&#x7ECF;&#x786E;&#x5B9A;&#x4E86;&#xFF0C;&#x5373;&#x6570;&#x7EC4;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x7531;&#x4E8E;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x6267;&#x884C;&#x65F6;&#x673A;&#x662F;&#x5728;return&#x8BED;&#x53E5;&#x4E4B;&#x524D;&#xFF0C;&#x6240;&#x4EE5;&#x5BF9;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x7EC8;&#x4FEE;&#x6539;&#x503C;&#x4F1A;&#x88AB;&#x6253;&#x5370;&#x51FA;&#x6765;&#x3002;</p>
+<h2 id="23-&#x9898;&#x76EE;&#x4E09;">2.3 &#x9898;&#x76EE;&#x4E09;</h2>
+<p>&#x4E0B;&#x9762;&#x51FD;&#x6570;&#x8F93;&#x51FA;&#x4EC0;&#x4E48;&#xFF1F;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> deferFuncReturn() (result <span class="hljs-keyword">int</span>) {
+    i := <span class="hljs-number">1</span>
+
+    <span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
+       result++
+    }()
+
+    <span class="hljs-keyword">return</span> i
+}
+</code></pre>
+<p>&#x51FD;&#x6570;&#x8BF4;&#x660E;&#xFF1A;<br>&#x51FD;&#x6570;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x5177;&#x540D;&#x8FD4;&#x56DE;&#x503C;result&#xFF0C;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;i&#xFF0C;defer&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#xFF0C;&#x6700;&#x540E;&#x8FD4;&#x56DE;&#x53D8;&#x91CF;i&#x3002;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x4E2D;&#x9012;&#x589E;result&#x3002;</p>
+<p>&#x53C2;&#x8003;&#x7B54;&#x6848;&#xFF1A;<br>&#x51FD;&#x6570;&#x8F93;&#x51FA;2&#x3002;&#x51FD;&#x6570;&#x7684;return&#x8BED;&#x53E5;&#x5E76;&#x4E0D;&#x662F;&#x539F;&#x5B50;&#x7684;&#xFF0C;&#x5B9E;&#x9645;&#x6267;&#x884C;&#x5206;&#x4E3A;&#x8BBE;&#x7F6E;&#x8FD4;&#x56DE;&#x503C;--&gt;ret&#xFF0C;defer&#x8BED;&#x53E5;&#x5B9E;&#x9645;&#x6267;&#x884C;&#x5728;&#x8FD4;&#x56DE;&#x524D;&#xFF0C;&#x5373;&#x62E5;&#x6709;defer&#x7684;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x8FC7;&#x7A0B;&#x662F;&#xFF1A;&#x8BBE;&#x7F6E;&#x8FD4;&#x56DE;&#x503C;--&gt;&#x6267;&#x884C;defer--&gt;ret&#x3002;&#x6240;&#x4EE5;return&#x8BED;&#x53E5;&#x5148;&#x628A;result&#x8BBE;&#x7F6E;&#x4E3A;i&#x7684;&#x503C;&#xFF0C;&#x5373;1&#xFF0C;defer&#x8BED;&#x53E5;&#x4E2D;&#x53C8;&#x628A;result&#x9012;&#x589E;1&#xFF0C;&#x6240;&#x4EE5;&#x6700;&#x7EC8;&#x8FD4;&#x56DE;2&#x3002;</p>
+<h1 id="3-defer&#x89C4;&#x5219;">3. defer&#x89C4;&#x5219;</h1>
+<p>Golang&#x5B98;&#x65B9;&#x535A;&#x5BA2;&#x91CC;&#x603B;&#x7ED3;&#x4E86;defer&#x7684;&#x884C;&#x4E3A;&#x89C4;&#x5219;&#xFF0C;&#x53EA;&#x6709;&#x4E09;&#x6761;&#xFF0C;&#x6211;&#x4EEC;&#x56F4;&#x7ED5;&#x8FD9;&#x4E09;&#x6761;&#x8FDB;&#x884C;&#x8BF4;&#x660E;&#x3002;</p>
+<h2 id="31-&#x89C4;&#x5219;&#x4E00;&#xFF1A;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x5728;defer&#x8BED;&#x53E5;&#x51FA;&#x73B0;&#x65F6;&#x5C31;&#x5DF2;&#x7ECF;&#x786E;&#x5B9A;&#x4E0B;&#x6765;&#x4E86;">3.1 &#x89C4;&#x5219;&#x4E00;&#xFF1A;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x5728;defer&#x8BED;&#x53E5;&#x51FA;&#x73B0;&#x65F6;&#x5C31;&#x5DF2;&#x7ECF;&#x786E;&#x5B9A;&#x4E0B;&#x6765;&#x4E86;</h2>
+<p>&#x5B98;&#x65B9;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> a() {
+    i := <span class="hljs-number">0</span>
+    <span class="hljs-keyword">defer</span> fmt.Println(i)
+    i++
+    <span class="hljs-keyword">return</span>
+}
+</code></pre>
+<p>defer&#x8BED;&#x53E5;&#x4E2D;&#x7684;fmt.Println()&#x53C2;&#x6570;i&#x503C;&#x5728;defer&#x51FA;&#x73B0;&#x65F6;&#x5C31;&#x5DF2;&#x7ECF;&#x786E;&#x5B9A;&#x4E0B;&#x6765;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x62F7;&#x8D1D;&#x4E86;&#x4E00;&#x4EFD;&#x3002;&#x540E;&#x9762;&#x5BF9;&#x53D8;&#x91CF;i&#x7684;&#x4FEE;&#x6539;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;fmt.Println()&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x4ECD;&#x7136;&#x6253;&#x5370;&quot;0&quot;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5BF9;&#x4E8E;&#x6307;&#x9488;&#x7C7B;&#x578B;&#x53C2;&#x6570;&#xFF0C;&#x89C4;&#x5219;&#x4ECD;&#x7136;&#x9002;&#x7528;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5730;&#x5740;&#x503C;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;defer&#x540E;&#x9762;&#x7684;&#x8BED;&#x53E5;&#x5BF9;&#x53D8;&#x91CF;&#x7684;&#x4FEE;&#x6539;&#x53EF;&#x80FD;&#x4F1A;&#x5F71;&#x54CD;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x3002;</p>
+<h2 id="32-&#x89C4;&#x5219;&#x4E8C;&#xFF1A;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x6267;&#x884C;&#x6309;&#x540E;&#x8FDB;&#x5148;&#x51FA;&#x987A;&#x5E8F;&#x6267;&#x884C;&#xFF0C;&#x5373;&#x5148;&#x51FA;&#x73B0;&#x7684;defer&#x6700;&#x540E;&#x6267;&#x884C;">3.2 &#x89C4;&#x5219;&#x4E8C;&#xFF1A;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x6267;&#x884C;&#x6309;&#x540E;&#x8FDB;&#x5148;&#x51FA;&#x987A;&#x5E8F;&#x6267;&#x884C;&#xFF0C;&#x5373;&#x5148;&#x51FA;&#x73B0;&#x7684;defer&#x6700;&#x540E;&#x6267;&#x884C;</h2>
+<p>&#x8FD9;&#x4E2A;&#x89C4;&#x5219;&#x5F88;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x5B9A;&#x4E49;defer&#x7C7B;&#x4F3C;&#x4E8E;&#x5165;&#x6808;&#x64CD;&#x4F5C;&#xFF0C;&#x6267;&#x884C;defer&#x7C7B;&#x4F3C;&#x4E8E;&#x51FA;&#x6808;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x8BBE;&#x8BA1;defer&#x7684;&#x521D;&#x8877;&#x662F;&#x7B80;&#x5316;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x65F6;&#x8D44;&#x6E90;&#x6E05;&#x7406;&#x7684;&#x52A8;&#x4F5C;&#xFF0C;&#x8D44;&#x6E90;&#x5F80;&#x5F80;&#x6709;&#x4F9D;&#x8D56;&#x987A;&#x5E8F;&#xFF0C;&#x6BD4;&#x5982;&#x5148;&#x7533;&#x8BF7;A&#x8D44;&#x6E90;&#xFF0C;&#x518D;&#x8DDF;&#x636E;A&#x8D44;&#x6E90;&#x7533;&#x8BF7;B&#x8D44;&#x6E90;&#xFF0C;&#x8DDF;&#x636E;B&#x8D44;&#x6E90;&#x7533;&#x8BF7;C&#x8D44;&#x6E90;&#xFF0C;&#x5373;&#x7533;&#x8BF7;&#x987A;&#x5E8F;&#x662F;:A--&gt;B--&gt;C&#xFF0C;&#x91CA;&#x653E;&#x65F6;&#x5F80;&#x5F80;&#x53C8;&#x8981;&#x53CD;&#x5411;&#x8FDB;&#x884C;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x628A;defer&#x8BBE;&#x8BA1;&#x6210;LIFO&#x7684;&#x539F;&#x56E0;&#x3002;</p>
+<p>&#x6BCF;&#x7533;&#x8BF7;&#x5230;&#x4E00;&#x4E2A;&#x7528;&#x5B8C;&#x9700;&#x8981;&#x91CA;&#x653E;&#x7684;&#x8D44;&#x6E90;&#x65F6;&#xFF0C;&#x7ACB;&#x5373;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;defer&#x6765;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x662F;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x4E60;&#x60EF;&#x3002;</p>
+<h2 id="33-&#x89C4;&#x5219;&#x4E09;&#xFF1A;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x64CD;&#x4F5C;&#x4E3B;&#x51FD;&#x6570;&#x7684;&#x5177;&#x540D;&#x8FD4;&#x56DE;&#x503C;">3.3 &#x89C4;&#x5219;&#x4E09;&#xFF1A;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x64CD;&#x4F5C;&#x4E3B;&#x51FD;&#x6570;&#x7684;&#x5177;&#x540D;&#x8FD4;&#x56DE;&#x503C;</h2>
+<p>&#x5B9A;&#x4E49;defer&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5373;&#x4E3B;&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x6709;&#x6CA1;&#x6709;&#x540D;&#x5B57;&#x6CA1;&#x6709;&#x5173;&#x7CFB;&#xFF0C;defer&#x6240;&#x4F5C;&#x7528;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5373;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<p>&#x82E5;&#x8981;&#x7406;&#x89E3;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x662F;&#x5982;&#x4F55;&#x5F71;&#x54CD;&#x4E3B;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#xFF0C;&#x53EA;&#x8981;&#x660E;&#x767D;&#x51FD;&#x6570;&#x662F;&#x5982;&#x4F55;&#x8FD4;&#x56DE;&#x7684;&#x5C31;&#x8DB3;&#x591F;&#x4E86;&#x3002;</p>
+<h3 id="331-&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x8FC7;&#x7A0B;">3.3.1 &#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x8FC7;&#x7A0B;</h3>
+<p>&#x6709;&#x4E00;&#x4E2A;&#x4E8B;&#x5B9E;&#x5FC5;&#x987B;&#x8981;&#x4E86;&#x89E3;&#xFF0C;&#x5173;&#x952E;&#x5B57;<em>return</em>&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;<em>return</em>&#x53EA;&#x4EE3;&#x7406;&#x6C47;&#x7F16;&#x6307;&#x4EE4;<em>ret</em>&#xFF0C;&#x5373;&#x5C06;&#x8DF3;&#x8F6C;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x3002;&#x6BD4;&#x5982;&#x8BED;&#x53E5;<code>return i</code>&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x5206;&#x4E24;&#x6B65;&#x8FDB;&#x884C;&#xFF0C;&#x5373;&#x5C06;i&#x503C;&#x5B58;&#x5165;&#x6808;&#x4E2D;&#x4F5C;&#x4E3A;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x6267;&#x884C;&#x8DF3;&#x8F6C;&#xFF0C;&#x800C;defer&#x7684;&#x6267;&#x884C;&#x65F6;&#x673A;&#x6B63;&#x662F;&#x8DF3;&#x8F6C;&#x524D;&#xFF0C;&#x6240;&#x4EE5;&#x8BF4;defer&#x6267;&#x884C;&#x65F6;&#x8FD8;&#x662F;&#x6709;&#x673A;&#x4F1A;&#x64CD;&#x4F5C;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x5B9E;&#x9645;&#x7684;&#x4F8B;&#x5B50;&#x8FDB;&#x884C;&#x8BF4;&#x660E;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> deferFuncReturn() (result <span class="hljs-keyword">int</span>) {
+    i := <span class="hljs-number">1</span>
+
+    <span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
+       result++
+    }()
+
+    <span class="hljs-keyword">return</span> i
+}
+</code></pre>
+<p>&#x8BE5;&#x51FD;&#x6570;&#x7684;return&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x62C6;&#x5206;&#x6210;&#x4E0B;&#x9762;&#x4E24;&#x884C;&#xFF1A;</p>
+<pre><code class="lang-go">result = i
+<span class="hljs-keyword">return</span>
+</code></pre>
+<p>&#x800C;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x6B63;&#x662F;&#x5728;return&#x4E4B;&#x524D;&#xFF0C;&#x5373;&#x52A0;&#x5165;defer&#x540E;&#x7684;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go">result = i
+result++
+<span class="hljs-keyword">return</span>
+</code></pre>
+<p>&#x6240;&#x4EE5;&#x4E0A;&#x9762;&#x51FD;&#x6570;&#x5B9E;&#x9645;&#x8FD4;&#x56DE;i++&#x503C;&#x3002;</p>
+<p>&#x5173;&#x4E8E;&#x4E3B;&#x51FD;&#x6570;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x8FD4;&#x56DE;&#x65B9;&#x5F0F;&#xFF0C;&#x4F46;&#x8FD4;&#x56DE;&#x673A;&#x5236;&#x5C31;&#x5982;&#x4E0A;&#x673A;&#x4ECB;&#x7ECD;&#x6240;&#x8BF4;&#xFF0C;&#x53EA;&#x8981;&#x628A;return&#x8BED;&#x53E5;&#x62C6;&#x5F00;&#x90FD;&#x53EF;&#x4EE5;&#x5F88;&#x597D;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x4E0B;&#x9762;&#x5206;&#x522B;&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;</p>
+<h3 id="332-&#x4E3B;&#x51FD;&#x6570;&#x62E5;&#x6709;&#x533F;&#x540D;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x5B57;&#x9762;&#x503C;">3.3.2 &#x4E3B;&#x51FD;&#x6570;&#x62E5;&#x6709;&#x533F;&#x540D;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x5B57;&#x9762;&#x503C;</h3>
+<p>&#x4E00;&#x4E2A;&#x4E3B;&#x51FD;&#x6570;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x65F6;&#x4F7F;&#x7528;&#x5B57;&#x9762;&#x503C;&#xFF0C;&#x6BD4;&#x5982;&#x8FD4;&#x56DE;&quot;1&quot;&#x3001;&quot;2&quot;&#x3001;&quot;Hello&quot;&#x8FD9;&#x6837;&#x7684;&#x503C;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;defer&#x8BED;&#x53E5;&#x662F;&#x65E0;&#x6CD5;&#x64CD;&#x4F5C;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x5B57;&#x9762;&#x503C;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> foo() <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">var</span> i <span class="hljs-keyword">int</span>
+
+    <span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
+        i++
+    }()
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;return&#x8BED;&#x53E5;&#xFF0C;&#x76F4;&#x63A5;&#x628A;1&#x5199;&#x5165;&#x6808;&#x4E2D;&#x4F5C;&#x4E3A;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x65E0;&#x6CD5;&#x64CD;&#x4F5C;&#x8BE5;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x65E0;&#x6CD5;&#x5F71;&#x54CD;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<h3 id="333-&#x4E3B;&#x51FD;&#x6570;&#x62E5;&#x6709;&#x533F;&#x540D;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x53D8;&#x91CF;">3.3.3 &#x4E3B;&#x51FD;&#x6570;&#x62E5;&#x6709;&#x533F;&#x540D;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x53D8;&#x91CF;</h3>
+<p>&#x4E00;&#x4E2A;&#x4E3B;&#x51FD;&#x6570;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x533F;&#x540D;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x4F7F;&#x7528;&#x672C;&#x5730;&#x6216;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;defer&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x5F15;&#x7528;&#x5230;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x4F46;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x672C;&#x5730;&#x53D8;&#x91CF;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> foo() <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">var</span> i <span class="hljs-keyword">int</span>
+
+    <span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
+        i++
+    }()
+
+    <span class="hljs-keyword">return</span> i
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x540C;&#x65F6;defer&#x51FD;&#x6570;&#x4E5F;&#x4F1A;&#x64CD;&#x4F5C;&#x8FD9;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x3002;&#x5BF9;&#x4E8E;&#x533F;&#x540D;&#x8FD4;&#x56DE;&#x503C;&#x6765;&#x8BF4;&#xFF0C;&#x53EF;&#x4EE5;&#x5047;&#x5B9A;&#x4ECD;&#x7136;&#x6709;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x5B58;&#x50A8;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x5047;&#x5B9A;&#x8FD4;&#x56DE;&#x503C;&#x53D8;&#x91CF;&#x4E3A;&quot;anony&quot;&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x8FD4;&#x56DE;&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x62C6;&#x5206;&#x6210;&#x4EE5;&#x4E0B;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<pre><code class="lang-go">anony = i
+i++
+<span class="hljs-keyword">return</span>
+</code></pre>
+<p>&#x7531;&#x4E8E;i&#x662F;&#x6574;&#x578B;&#xFF0C;&#x4F1A;&#x5C06;&#x503C;&#x62F7;&#x8D1D;&#x7ED9;anony&#xFF0C;&#x6240;&#x4EE5;defer&#x8BED;&#x53E5;&#x4E2D;&#x4FEE;&#x6539;i&#x503C;&#xFF0C;&#x5BF9;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x4E0D;&#x9020;&#x6210;&#x5F71;&#x54CD;&#x3002;</p>
+<h3 id="334-&#x4E3B;&#x51FD;&#x6570;&#x62E5;&#x6709;&#x5177;&#x540D;&#x8FD4;&#x56DE;&#x503C;">3.3.4 &#x4E3B;&#x51FD;&#x6570;&#x62E5;&#x6709;&#x5177;&#x540D;&#x8FD4;&#x56DE;&#x503C;</h3>
+<p>&#x4E3B;&#x51FD;&#x58F0;&#x660E;&#x8BED;&#x53E5;&#x4E2D;&#x5E26;&#x540D;&#x5B57;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x4F1A;&#x88AB;&#x521D;&#x59CB;&#x5316;&#x6210;&#x4E00;&#x4E2A;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF0C;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x53EF;&#x4EE5;&#x50CF;&#x4F7F;&#x7528;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x4E00;&#x6837;&#x4F7F;&#x7528;&#x8BE5;&#x8FD4;&#x56DE;&#x503C;&#x3002;&#x5982;&#x679C;defer&#x8BED;&#x53E5;&#x64CD;&#x4F5C;&#x8BE5;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x6539;&#x53D8;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x5F71;&#x54CD;&#x51FD;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> foo() (ret <span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
+        ret++
+    }()
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x51FD;&#x6570;&#x62C6;&#x89E3;&#x51FA;&#x6765;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-go">ret = <span class="hljs-number">0</span>
+ret++
+<span class="hljs-keyword">return</span>
+</code></pre>
+<p>&#x51FD;&#x6570;&#x771F;&#x6B63;&#x8FD4;&#x56DE;&#x524D;&#xFF0C;&#x5728;defer&#x4E2D;&#x5BF9;&#x8FD4;&#x56DE;&#x503C;&#x505A;&#x4E86;+1&#x64CD;&#x4F5C;&#xFF0C;&#x6240;&#x4EE5;&#x51FD;&#x6570;&#x6700;&#x7EC8;&#x8FD4;&#x56DE;1&#x3002;</p>
+<h1 id="4-defer&#x5B9E;&#x73B0;&#x539F;&#x7406;">4. defer&#x5B9E;&#x73B0;&#x539F;&#x7406;</h1>
+<p>&#x672C;&#x8282;&#x6211;&#x4EEC;&#x5C1D;&#x8BD5;&#x4E86;&#x89E3;&#x4E00;&#x4E9B;defer&#x7684;&#x5B9E;&#x73B0;&#x673A;&#x5236;&#x3002;</p>
+<h2 id="41-defer&#x6570;&#x636E;&#x7ED3;&#x6784;">4.1 defer&#x6570;&#x636E;&#x7ED3;&#x6784;</h2>
+<p>&#x6E90;&#x7801;&#x5305;<code>src/src/runtime/runtime2.go:_defer</code>&#x5B9A;&#x4E49;&#x4E86;defer&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> _defer <span class="hljs-keyword">struct</span> {
+    sp      <span class="hljs-keyword">uintptr</span>   <span class="hljs-comment">//&#x51FD;&#x6570;&#x6808;&#x6307;&#x9488;</span>
+    pc      <span class="hljs-keyword">uintptr</span>   <span class="hljs-comment">//&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;</span>
+    fn      *funcval  <span class="hljs-comment">//&#x51FD;&#x6570;&#x5730;&#x5740;</span>
+    link    *_defer   <span class="hljs-comment">//&#x6307;&#x5411;&#x81EA;&#x8EAB;&#x7ED3;&#x6784;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x7528;&#x4E8E;&#x94FE;&#x63A5;&#x591A;&#x4E2A;defer</span>
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;defer&#x540E;&#x9762;&#x4E00;&#x5B9A;&#x8981;&#x63A5;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#xFF0C;&#x6240;&#x4EE5;defer&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x8DDF;&#x4E00;&#x822C;&#x51FD;&#x6570;&#x7C7B;&#x4F3C;&#xFF0C;&#x4E5F;&#x6709;&#x6808;&#x5730;&#x5740;&#x3001;&#x7A0B;&#x5E8F;&#x8BA1;&#x6570;&#x5668;&#x3001;&#x51FD;&#x6570;&#x5730;&#x5740;&#x7B49;&#x7B49;&#x3002;</p>
+<p>&#x4E0E;&#x51FD;&#x6570;&#x4E0D;&#x540C;&#x7684;&#x4E00;&#x70B9;&#x662F;&#x5B83;&#x542B;&#x6709;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x6307;&#x5411;&#x53E6;&#x4E00;&#x4E2A;defer&#xFF0C;&#x6BCF;&#x4E2A;goroutine&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E2D;&#x5B9E;&#x9645;&#x4E0A;&#x4E5F;&#x6709;&#x4E00;&#x4E2A;defer&#x6307;&#x9488;&#xFF0C;&#x8BE5;&#x6307;&#x9488;&#x6307;&#x5411;&#x4E00;&#x4E2A;defer&#x7684;&#x5355;&#x94FE;&#x8868;&#xFF0C;&#x6BCF;&#x6B21;&#x58F0;&#x660E;&#x4E00;&#x4E2A;defer&#x65F6;&#x5C31;&#x5C06;defer&#x63D2;&#x5165;&#x5230;&#x5355;&#x94FE;&#x8868;&#x8868;&#x5934;&#xFF0C;&#x6BCF;&#x6B21;&#x6267;&#x884C;defer&#x65F6;&#x5C31;&#x4ECE;&#x5355;&#x94FE;&#x8868;&#x8868;&#x5934;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;defer&#x6267;&#x884C;&#x3002;</p>
+<p>&#x4E0B;&#x56FE;&#x5C55;&#x793A;&#x591A;&#x4E2A;defer&#x88AB;&#x94FE;&#x63A5;&#x7684;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<p><img src="images/defer-01-defer_stack.png" alt=""></p>
+<p>&#x4ECE;&#x4E0A;&#x56FE;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x65B0;&#x58F0;&#x660E;&#x7684;defer&#x603B;&#x662F;&#x6DFB;&#x52A0;&#x5230;&#x94FE;&#x8868;&#x5934;&#x90E8;&#x3002;</p>
+<p>&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x524D;&#x6267;&#x884C;defer&#x5219;&#x662F;&#x4ECE;&#x94FE;&#x8868;&#x9996;&#x90E8;&#x4F9D;&#x6B21;&#x53D6;&#x51FA;&#x6267;&#x884C;&#xFF0C;&#x4E0D;&#x518D;&#x8D58;&#x8FF0;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;goroutine&#x53EF;&#x80FD;&#x8FDE;&#x7EED;&#x8C03;&#x7528;&#x591A;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;defer&#x6DFB;&#x52A0;&#x8FC7;&#x7A0B;&#x8DDF;&#x4E0A;&#x8FF0;&#x6D41;&#x7A0B;&#x4E00;&#x81F4;&#xFF0C;&#x8FDB;&#x5165;&#x51FD;&#x6570;&#x65F6;&#x6DFB;&#x52A0;defer&#xFF0C;&#x79BB;&#x5F00;&#x51FD;&#x6570;&#x65F6;&#x53D6;&#x51FA;defer&#xFF0C;&#x6240;&#x4EE5;&#x5373;&#x4FBF;&#x8C03;&#x7528;&#x591A;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x603B;&#x662F;&#x80FD;&#x4FDD;&#x8BC1;defer&#x662F;&#x6309;LIFO&#x65B9;&#x5F0F;&#x6267;&#x884C;&#x7684;&#x3002;</p>
+<h2 id="42-defer&#x7684;&#x521B;&#x5EFA;&#x548C;&#x6267;&#x884C;">4.2 defer&#x7684;&#x521B;&#x5EFA;&#x548C;&#x6267;&#x884C;</h2>
+<p>&#x6E90;&#x7801;&#x5305;<code>src/runtime/panic.go</code>&#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x5206;&#x522B;&#x7528;&#x4E8E;&#x521B;&#x5EFA;defer&#x548C;&#x6267;&#x884C;defer&#x3002;</p>
+<ul>
+<li>deferproc()&#xFF1A; &#x5728;&#x58F0;&#x660E;defer&#x5904;&#x8C03;&#x7528;&#xFF0C;&#x5176;&#x5C06;defer&#x51FD;&#x6570;&#x5B58;&#x5165;goroutine&#x7684;&#x94FE;&#x8868;&#x4E2D;&#xFF1B;</li>
+<li>deferreturn()&#xFF1A;&#x5728;return&#x6307;&#x4EE4;&#xFF0C;&#x51C6;&#x786E;&#x7684;&#x8BB2;&#x662F;&#x5728;ret&#x6307;&#x4EE4;&#x524D;&#x8C03;&#x7528;&#xFF0C;&#x5176;&#x5C06;defer&#x4ECE;goroutine&#x94FE;&#x8868;&#x4E2D;&#x53D6;&#x51FA;&#x5E76;&#x6267;&#x884C;&#x3002;</li>
+</ul>
+<p>&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x8FD9;&#x4E48;&#x7406;&#x89E3;&#xFF0C;&#x5728;&#x7F16;&#x8BD1;&#x9636;&#x6BB5;&#xFF0C;&#x58F0;&#x660E;defer&#x5904;&#x63D2;&#x5165;&#x4E86;&#x51FD;&#x6570;deferproc()&#xFF0C;&#x5728;&#x51FD;&#x6570;return&#x524D;&#x63D2;&#x5165;&#x4E86;&#x51FD;&#x6570;deferreturn()&#x3002;</p>
+<h1 id="5-&#x603B;&#x7ED3;">5. &#x603B;&#x7ED3;</h1>
+<ul>
+<li>defer&#x5B9A;&#x4E49;&#x7684;&#x5EF6;&#x8FDF;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x5728;defer&#x8BED;&#x53E5;&#x51FA;&#x73B0;&#x65F6;&#x5C31;&#x5DF2;&#x7ECF;&#x786E;&#x5B9A;&#x4E0B;&#x6765;&#x4E86;</li>
+<li>defer&#x5B9A;&#x4E49;&#x987A;&#x5E8F;&#x4E0E;&#x5B9E;&#x9645;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x76F8;&#x53CD;</li>
+<li>return&#x4E0D;&#x662F;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#xFF0C;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x662F;: &#x4FDD;&#x5B58;&#x8FD4;&#x56DE;&#x503C;(&#x82E5;&#x6709;)--&gt;&#x6267;&#x884C;defer&#xFF08;&#x82E5;&#x6709;&#xFF09;--&gt;&#x6267;&#x884C;ret&#x8DF3;&#x8F6C;</li>
+<li>&#x7533;&#x8BF7;&#x8D44;&#x6E90;&#x540E;&#x7ACB;&#x5373;&#x4F7F;&#x7528;defer&#x5173;&#x95ED;&#x8D44;&#x6E90;&#x662F;&#x597D;&#x4E60;&#x60EF;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 第二章：常见控制结构实现原理">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2.1.1-defer-recover.html" class="navigation navigation-next " aria-label="Next page: 2.1.1 defer 陷阱">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.1 defer","level":"1.4.1","depth":2,"next":{"title":"2.1.1 defer 陷阱","level":"1.4.1.1","depth":3,"path":"chapter02/2.1.1-defer-recover.md","ref":"chapter02/2.1.1-defer-recover.md","articles":[]},"previous":{"title":"第二章：常见控制结构实现原理","level":"1.4","depth":1,"path":"chapter02/README.md","ref":"chapter02/README.md","articles":[{"title":"2.1 defer","level":"1.4.1","depth":2,"path":"chapter02/2.1-defer.md","ref":"chapter02/2.1-defer.md","articles":[{"title":"2.1.1 defer 陷阱","level":"1.4.1.1","depth":3,"path":"chapter02/2.1.1-defer-recover.md","ref":"chapter02/2.1.1-defer-recover.md","articles":[]}]},{"title":"2.2 select","level":"1.4.2","depth":2,"path":"chapter02/2.2-select.md","ref":"chapter02/2.2-select.md","articles":[]},{"title":"2.3 range","level":"1.4.3","depth":2,"path":"chapter02/2.3-range.md","ref":"chapter02/2.3-range.md","articles":[]},{"title":"2.4 mutex","level":"1.4.4","depth":2,"path":"chapter02/2.4-mutex.md","ref":"chapter02/2.4-mutex.md","articles":[]},{"title":"2.5 rwmutex","level":"1.4.5","depth":2,"path":"chapter02/2.5-rwmutex.md","ref":"chapter02/2.5-rwmutex.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter02/2.1-defer.md","mtime":"2023-01-21T01:38:08.353Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-21T01:43:26.952Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

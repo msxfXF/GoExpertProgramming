@@ -1,0 +1,1629 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>7.3.4 性能测试实现原理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="7.3.5-example.html" />
+    
+    
+    <link rel="prev" href="7.3.3-unit.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../FOREWORD.html">
+            
+                <a href="../FOREWORD.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter01/">
+            
+                <a href="../chapter01/">
+            
+                    
+                    第一章：常见数据结构实现原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter01/1.1-chan.html">
+            
+                <a href="../chapter01/1.1-chan.html">
+            
+                    
+                    1.1 chan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter01/1.2-slice.html">
+            
+                <a href="../chapter01/1.2-slice.html">
+            
+                    
+                    1.2 slice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter01/1.3-map.html">
+            
+                <a href="../chapter01/1.3-map.html">
+            
+                    
+                    1.3 map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter01/1.4-struct.html">
+            
+                <a href="../chapter01/1.4-struct.html">
+            
+                    
+                    1.4 struct
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter01/1.5-iota.html">
+            
+                <a href="../chapter01/1.5-iota.html">
+            
+                    
+                    1.5 iota
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter01/1.6-string.html">
+            
+                <a href="../chapter01/1.6-string.html">
+            
+                    
+                    1.6 string
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chapter02/">
+            
+                <a href="../chapter02/">
+            
+                    
+                    第二章：常见控制结构实现原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../chapter02/2.1-defer.html">
+            
+                <a href="../chapter02/2.1-defer.html">
+            
+                    
+                    2.1 defer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../chapter02/2.1.1-defer-recover.html">
+            
+                <a href="../chapter02/2.1.1-defer-recover.html">
+            
+                    
+                    2.1.1 defer 陷阱
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../chapter02/2.2-select.html">
+            
+                <a href="../chapter02/2.2-select.html">
+            
+                    
+                    2.2 select
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../chapter02/2.3-range.html">
+            
+                <a href="../chapter02/2.3-range.html">
+            
+                    
+                    2.3 range
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../chapter02/2.4-mutex.html">
+            
+                <a href="../chapter02/2.4-mutex.html">
+            
+                    
+                    2.4 mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../chapter02/2.5-rwmutex.html">
+            
+                <a href="../chapter02/2.5-rwmutex.html">
+            
+                    
+                    2.5 rwmutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter03/">
+            
+                <a href="../chapter03/">
+            
+                    
+                    第三章：协程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../chapter03/3.1-go_schedule.html">
+            
+                <a href="../chapter03/3.1-go_schedule.html">
+            
+                    
+                    3.1 协程调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../chapter04/">
+            
+                <a href="../chapter04/">
+            
+                    
+                    第四章：内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter04/4.1-memory_alloc.html">
+            
+                <a href="../chapter04/4.1-memory_alloc.html">
+            
+                    
+                    4.1 内存分配原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../chapter04/4.2-garbage_collection.html">
+            
+                <a href="../chapter04/4.2-garbage_collection.html">
+            
+                    
+                    4.2 垃圾回收原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../chapter04/4.3-escape_analysis.html">
+            
+                <a href="../chapter04/4.3-escape_analysis.html">
+            
+                    
+                    4.3 逃逸分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../chapter05/">
+            
+                <a href="../chapter05/">
+            
+                    
+                    第五章：并发控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../chapter05/5.1-channel.html">
+            
+                <a href="../chapter05/5.1-channel.html">
+            
+                    
+                    5.1 Channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../chapter05/5.2-waitgroup.html">
+            
+                <a href="../chapter05/5.2-waitgroup.html">
+            
+                    
+                    5.2 WaitGroup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../chapter05/5.3-context.html">
+            
+                <a href="../chapter05/5.3-context.html">
+            
+                    
+                    5.3 Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../chapter06/">
+            
+                <a href="../chapter06/">
+            
+                    
+                    第六章：反射
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../chapter06/6.1-reflect.html">
+            
+                <a href="../chapter06/6.1-reflect.html">
+            
+                    
+                    6.1 反射机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第七章：go test
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="7.1-foreword.html">
+            
+                <a href="7.1-foreword.html">
+            
+                    
+                    7.1 快速开始
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="7.1.1-unit_test.html">
+            
+                <a href="7.1.1-unit_test.html">
+            
+                    
+                    7.1.1 单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.2" data-path="7.1.2-benchmark_test.html">
+            
+                <a href="7.1.2-benchmark_test.html">
+            
+                    
+                    7.1.2 性能测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.3" data-path="7.1.3-example_test.html">
+            
+                <a href="7.1.3-example_test.html">
+            
+                    
+                    7.1.3 示例测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="7.2-foreword.html">
+            
+                <a href="7.2-foreword.html">
+            
+                    
+                    7.2 进阶测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="7.2.1-sub_test.html">
+            
+                <a href="7.2.1-sub_test.html">
+            
+                    
+                    7.2.1 子测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="7.2.2-main_test.html">
+            
+                <a href="7.2.2-main_test.html">
+            
+                    
+                    7.2.2 Main测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="7.3-foreword.html">
+            
+                <a href="7.3-foreword.html">
+            
+                    
+                    7.3 实现原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.3.1" data-path="7.3.1-common.html">
+            
+                <a href="7.3.1-common.html">
+            
+                    
+                    7.3.1 testing.common公共类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.2" data-path="7.3.2-tb_interface.html">
+            
+                <a href="7.3.2-tb_interface.html">
+            
+                    
+                    7.3.2 testing.TB接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.3" data-path="7.3.3-unit.html">
+            
+                <a href="7.3.3-unit.html">
+            
+                    
+                    7.3.3 单元测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.3.4" data-path="7.3.4-benchmark.html">
+            
+                <a href="7.3.4-benchmark.html">
+            
+                    
+                    7.3.4 性能测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.5" data-path="7.3.5-example.html">
+            
+                <a href="7.3.5-example.html">
+            
+                    
+                    7.3.5 示例测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.6" data-path="7.3.6-main.html">
+            
+                <a href="7.3.6-main.html">
+            
+                    
+                    7.3.6 Main测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.7" data-path="7.3.7-go_test.html">
+            
+                <a href="7.3.7-go_test.html">
+            
+                    
+                    7.3.7 go test工作机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="7.4-foreword.html">
+            
+                <a href="7.4-foreword.html">
+            
+                    
+                    7.4 go test参数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.4.1" data-path="7.4.1-parameter.html">
+            
+                <a href="7.4.1-parameter.html">
+            
+                    
+                    7.4.1 参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../chapter08/">
+            
+                <a href="../chapter08/">
+            
+                    
+                    第八章：httptest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../chapter09/">
+            
+                <a href="../chapter09/">
+            
+                    
+                    第九章：定时器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../chapter09/9.1-foreword.html">
+            
+                <a href="../chapter09/9.1-foreword.html">
+            
+                    
+                    9.1 Timer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1.1" data-path="../chapter09/9.1.1-timer_quick_start.html">
+            
+                <a href="../chapter09/9.1.1-timer_quick_start.html">
+            
+                    
+                    9.1.1 快速开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.1.2" data-path="../chapter09/9.1.2-timer_principle.html">
+            
+                <a href="../chapter09/9.1.2-timer_principle.html">
+            
+                    
+                    9.1.2 实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../chapter09/9.2-foreword.html">
+            
+                <a href="../chapter09/9.2-foreword.html">
+            
+                    
+                    9.2 Ticker
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.2.1" data-path="../chapter09/9.2.1-ticker_quick_start.html">
+            
+                <a href="../chapter09/9.2.1-ticker_quick_start.html">
+            
+                    
+                    9.2.1 快速开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2.2" data-path="../chapter09/9.2.2-ticker_principle.html">
+            
+                <a href="../chapter09/9.2.2-ticker_principle.html">
+            
+                    
+                    9.2.2 实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../chapter09/9.3-foreword.html">
+            
+                <a href="../chapter09/9.3-foreword.html">
+            
+                    
+                    9.3 timer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.3.1" data-path="../chapter09/9.3.1-timersproc_principle.html">
+            
+                <a href="../chapter09/9.3.1-timersproc_principle.html">
+            
+                    
+                    9.3.1 实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="../chapter09/9.4-foreword.html">
+            
+                <a href="../chapter09/9.4-foreword.html">
+            
+                    
+                    9.4 案例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.4.1" data-path="../chapter09/9.4.1-ticker_leak_case.html">
+            
+                <a href="../chapter09/9.4.1-ticker_leak_case.html">
+            
+                    
+                    9.4.1 开源库资源泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../chapter10/">
+            
+                <a href="../chapter10/">
+            
+                    
+                    第十章：语法糖
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../chapter10/1-foreword.html">
+            
+                <a href="../chapter10/1-foreword.html">
+            
+                    
+                    10.1 简短变量声明
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1.1" data-path="../chapter10/1.1-warmup.html">
+            
+                <a href="../chapter10/1.1-warmup.html">
+            
+                    
+                    10.1.1 热身测验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.2" data-path="../chapter10/1.2-rules.html">
+            
+                <a href="../chapter10/1.2-rules.html">
+            
+                    
+                    10.1.2 使用规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../chapter10/2-variadic.html">
+            
+                <a href="../chapter10/2-variadic.html">
+            
+                    
+                    10.2 可变参函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../chapter11/">
+            
+                <a href="../chapter11/">
+            
+                    
+                    第十一章：GO语言版本管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../chapter11/1.1-install.html">
+            
+                <a href="../chapter11/1.1-install.html">
+            
+                    
+                    11.1 GO语言安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../chapter11/1.2-uninstall.html">
+            
+                <a href="../chapter11/1.2-uninstall.html">
+            
+                    
+                    11.2 GO语言卸载
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../chapter12/">
+            
+                <a href="../chapter12/">
+            
+                    
+                    第十二章：GO依赖管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../chapter12/1-gopath.html">
+            
+                <a href="../chapter12/1-gopath.html">
+            
+                    
+                    12.1 GOPATH
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../chapter12/2-vendor.html">
+            
+                <a href="../chapter12/2-vendor.html">
+            
+                    
+                    12.2 vendor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../chapter12/3-foreword.html">
+            
+                <a href="../chapter12/3-foreword.html">
+            
+                    
+                    12.3 module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.3.1" data-path="../chapter12/3.1-basic.html">
+            
+                <a href="../chapter12/3.1-basic.html">
+            
+                    
+                    12.3.1 基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.2" data-path="../chapter12/3.2-quickstart.html">
+            
+                <a href="../chapter12/3.2-quickstart.html">
+            
+                    
+                    12.3.2 快速实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.3" data-path="../chapter12/3.3-module-replace.html">
+            
+                <a href="../chapter12/3.3-module-replace.html">
+            
+                    
+                    12.3.3 replace指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.4" data-path="../chapter12/3.4-module-exclude.html">
+            
+                <a href="../chapter12/3.4-module-exclude.html">
+            
+                    
+                    12.3.4 exclude指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.5" data-path="../chapter12/3.5-module-indirect.html">
+            
+                <a href="../chapter12/3.5-module-indirect.html">
+            
+                    
+                    12.3.5 indirect含义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.6" data-path="../chapter12/3.6-module-version.html">
+            
+                <a href="../chapter12/3.6-module-version.html">
+            
+                    
+                    12.3.6 版本选择机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.7" data-path="../chapter12/3.7-module-incompatible.html">
+            
+                <a href="../chapter12/3.7-module-incompatible.html">
+            
+                    
+                    12.3.7 incompatible
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.8" data-path="../chapter12/3.8-module-pseudo-version.html">
+            
+                <a href="../chapter12/3.8-module-pseudo-version.html">
+            
+                    
+                    12.3.8 伪版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.9" data-path="../chapter12/3.9-module-storage.html">
+            
+                <a href="../chapter12/3.9-module-storage.html">
+            
+                    
+                    12.3.9 依赖包存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.10" data-path="../chapter12/3.10-module-go-sum.html">
+            
+                <a href="../chapter12/3.10-module-go-sum.html">
+            
+                    
+                    12.3.10 依赖包校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../appendix/">
+            
+                <a href="../appendix/">
+            
+                    
+                    附录一：编程陷阱
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../appendix/append.html">
+            
+                <a href="../appendix/append.html">
+            
+                    
+                    1 切片追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../appendix/unpinned.html">
+            
+                <a href="../appendix/unpinned.html">
+            
+                    
+                    2 循环变量绑定
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >7.3.4 性能测试实现原理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h2>
+<p>&#x8DDF;&#x636E;&#x524D;&#x9762;&#x7AE0;&#x8282;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x7684;&#x5199;&#x51FA;&#x4E00;&#x4E2A;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x5E76;&#x6267;&#x884C;&#xFF0C;&#x6700;&#x4EE4;&#x6211;&#x611F;&#x5230;&#x795E;&#x5947;&#x7684;&#x662F;b.N&#x7684;&#x503C;&#xFF0C;&#x867D;&#x7136;&#x5B98;&#x65B9;&#x8D44;&#x6599;&#x4E2D;&#x8BF4;b.N&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x6574;&#x4EE5;&#x4FDD;&#x8BC1;&#x53EF;&#x9760;&#x7684;&#x8BA1;&#x65F6;&#xFF0C;&#x53EF;&#x8FD8;&#x662F;&#x60F3;&#x4E86;&#x89E3;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x673A;&#x5236;&#x3002;</p>
+<p>&#x672C;&#x8282;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x5206;&#x6790;testing.B&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x518D;&#x770B;&#x51E0;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x6210;&#x5458;&#x51FD;&#x6570;&#xFF0C;&#x4EE5;&#x671F;&#x4ECE;&#x6E90;&#x7801;&#x4E2D;&#x5BFB;&#x627E;&#x4EE5;&#x4E0B;&#x95EE;&#x9898;&#x7684;&#x7B54;&#x6848;&#xFF1A;</p>
+<ul>
+<li>b.N&#x662F;&#x5982;&#x4F55;&#x81EA;&#x52A8;&#x8C03;&#x6574;&#x7684;&#xFF1F;</li>
+<li>&#x5185;&#x5B58;&#x7EDF;&#x8BA1;&#x662F;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7684;&#xFF1F;</li>
+<li>SetBytes()&#x5176;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</li>
+</ul>
+<h2 id="&#x6570;&#x636E;&#x7ED3;&#x6784;">&#x6570;&#x636E;&#x7ED3;&#x6784;</h2>
+<p>&#x6E90;&#x7801;&#x5305;<code>src/testing/benchmark.go:B</code>&#x5B9A;&#x4E49;&#x4E86;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x6211;&#x4EEC;&#x63D0;&#x53D6;&#x5176;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x4E9B;&#x6210;&#x5458;&#x8FDB;&#x884C;&#x5206;&#x6790;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> B <span class="hljs-keyword">struct</span> {
+    common                         <span class="hljs-comment">// &#x4E0E;testing.T&#x5171;&#x4EAB;&#x7684;testing.common&#xFF0C;&#x8D1F;&#x8D23;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x3001;&#x72B6;&#x6001;&#x7B49;</span>
+    importPath       <span class="hljs-keyword">string</span> <span class="hljs-comment">// import path of the package containing the benchmark</span>
+    context          *benchContext
+    N                <span class="hljs-keyword">int</span>            <span class="hljs-comment">// &#x76EE;&#x6807;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x6B21;&#x6570;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x7528;&#x6237;&#x4E86;&#x89E3;&#x5177;&#x4F53;&#x503C;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x6574;</span>
+    previousN        <span class="hljs-keyword">int</span>           <span class="hljs-comment">// number of iterations in the previous run</span>
+    previousDuration time.Duration <span class="hljs-comment">// total duration of the previous run</span>
+    benchFunc        <span class="hljs-keyword">func</span>(b *B)   <span class="hljs-comment">// &#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;</span>
+    benchTime        time.Duration <span class="hljs-comment">// &#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x6700;&#x5C11;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;1s&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x53C2;&#x6570;&apos;-benchtime 10s&apos;&#x6307;&#x5B9A;</span>
+    bytes            <span class="hljs-keyword">int64</span>         <span class="hljs-comment">// &#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x5904;&#x7406;&#x7684;&#x5B57;&#x8282;&#x6570;</span>
+    missingBytes     <span class="hljs-keyword">bool</span> <span class="hljs-comment">// one of the subbenchmarks does not have bytes set.</span>
+    timerOn          <span class="hljs-keyword">bool</span> <span class="hljs-comment">// &#x662F;&#x5426;&#x5DF2;&#x5F00;&#x59CB;&#x8BA1;&#x65F6;</span>
+    showAllocResult  <span class="hljs-keyword">bool</span>
+    result           BenchmarkResult <span class="hljs-comment">// &#x6D4B;&#x8BD5;&#x7ED3;&#x679C;</span>
+    parallelism      <span class="hljs-keyword">int</span> <span class="hljs-comment">// RunParallel creates parallelism*GOMAXPROCS goroutines</span>
+    <span class="hljs-comment">// The initial states of memStats.Mallocs and memStats.TotalAlloc.</span>
+    startAllocs <span class="hljs-keyword">uint64</span>  <span class="hljs-comment">// &#x8BA1;&#x65F6;&#x5F00;&#x59CB;&#x65F6;&#x5806;&#x4E2D;&#x5206;&#x914D;&#x7684;&#x5BF9;&#x8C61;&#x603B;&#x6570;</span>
+    startBytes  <span class="hljs-keyword">uint64</span>  <span class="hljs-comment">// &#x8BA1;&#x65F6;&#x5F00;&#x59CB;&#x65F6;&#x65F6;&#x5806;&#x4E2D;&#x5206;&#x914D;&#x7684;&#x5B57;&#x8282;&#x603B;&#x6570;</span>
+    <span class="hljs-comment">// The net total of this test after being run.</span>
+    netAllocs <span class="hljs-keyword">uint64</span> <span class="hljs-comment">// &#x8BA1;&#x65F6;&#x7ED3;&#x675F;&#x65F6;&#xFF0C;&#x5806;&#x4E2D;&#x589E;&#x52A0;&#x7684;&#x5BF9;&#x8C61;&#x603B;&#x6570;</span>
+    netBytes  <span class="hljs-keyword">uint64</span> <span class="hljs-comment">// &#x8BA1;&#x65F6;&#x7ED3;&#x675F;&#x65F6;&#xFF0C;&#x5806;&#x4E2D;&#x589E;&#x52A0;&#x7684;&#x5B57;&#x8282;&#x603B;&#x6570;</span>
+}
+</code></pre>
+<p>&#x5176;&#x4E3B;&#x8981;&#x6210;&#x5458;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>common&#xFF1A; &#x4E0E;testing.T&#x5171;&#x4EAB;&#x7684;testing.common&#xFF0C;&#x7BA1;&#x7406;&#x7740;&#x65E5;&#x5FD7;&#x3001;&#x72B6;&#x6001;&#x7B49;&#xFF1B;</li>
+<li>N&#xFF1A;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x4E2D;&#x7528;&#x6237;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x6B21;&#x6570;</li>
+<li>benchFunc&#xFF1A;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;</li>
+<li>benchTime&#xFF1A;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x6700;&#x5C11;&#x6267;&#x884C;&#x65F6;&#x95F4;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;1s&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x80FD;&#x6570;-benchtime 2s&#x6307;&#x5B9A;</li>
+<li>bytes&#xFF1A;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x5904;&#x7406;&#x7684;&#x5B57;&#x8282;&#x6570;</li>
+<li>timerOn&#xFF1A;&#x8BA1;&#x65F6;&#x542F;&#x52A8;&#x6807;&#x5FD7;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;false&#xFF0C;&#x542F;&#x52A8;&#x8BA1;&#x65F6;&#x4E3A;true</li>
+<li>startAllocs&#xFF1A;&#x6D4B;&#x8BD5;&#x542F;&#x52A8;&#x65F6;&#x8BB0;&#x5F55;&#x5806;&#x4E2D;&#x5206;&#x914D;&#x7684;&#x5BF9;&#x8C61;&#x6570;</li>
+<li>startBytes&#xFF1A;&#x6D4B;&#x8BD5;&#x542F;&#x52A8;&#x65F6;&#x8BB0;&#x5F55;&#x5806;&#x4E2D;&#x5206;&#x914D;&#x7684;&#x5B57;&#x8282;&#x6570;</li>
+<li>netAllocs&#xFF1A;&#x6D4B;&#x8BD5;&#x7ED3;&#x675F;&#x540E;&#x8BB0;&#x5F55;&#x5806;&#x4E2D;&#x65B0;&#x589E;&#x52A0;&#x7684;&#x5BF9;&#x8C61;&#x6570;&#xFF0C;&#x516C;&#x5F0F;&#xFF1A;&#x7ED3;&#x675F;&#x65F6;&#x5806;&#x4E2D;&#x5206;&#x914D;&#x7684;&#x5BF9;&#x8C61;&#x6570;-</li>
+<li>netBytes&#xFF1A;&#x6D4B;&#x8BD5;&#x5BF9;&#x4E8B;&#x540E;&#x8BB0;&#x5F55;&#x5806;&#x4E2D;&#x65B0;&#x589E;&#x52A0;&#x7684;&#x5B57;&#x8282;&#x6570;</li>
+</ul>
+<h2 id="&#x5173;&#x952E;&#x51FD;&#x6570;">&#x5173;&#x952E;&#x51FD;&#x6570;</h2>
+<h3 id="&#x542F;&#x52A8;&#x8BA1;&#x65F6;&#xFF1A;bstarttimer">&#x542F;&#x52A8;&#x8BA1;&#x65F6;&#xFF1A;B.StartTimer()</h3>
+<p>StartTimer()&#x8D1F;&#x8D23;&#x542F;&#x52A8;&#x8BA1;&#x65F6;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x5185;&#x5B58;&#x76F8;&#x5173;&#x8BA1;&#x6570;&#xFF0C;&#x6D4B;&#x8BD5;&#x6267;&#x884C;&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#xFF0C;&#x4E00;&#x822C;&#x4E0D;&#x9700;&#x8981;&#x7528;&#x6237;&#x542F;&#x52A8;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (b *B) StartTimer() {
+    <span class="hljs-keyword">if</span> !b.timerOn {
+        runtime.ReadMemStats(&amp;memStats)     <span class="hljs-comment">// &#x8BFB;&#x53D6;&#x5F53;&#x524D;&#x5806;&#x5185;&#x5B58;&#x5206;&#x914D;&#x4FE1;&#x606F;</span>
+        b.startAllocs = memStats.Mallocs    <span class="hljs-comment">// &#x8BB0;&#x5F55;&#x5F53;&#x524D;&#x5806;&#x5185;&#x5B58;&#x5206;&#x914D;&#x7684;&#x5BF9;&#x8C61;&#x6570;</span>
+        b.startBytes = memStats.TotalAlloc  <span class="hljs-comment">// &#x8BB0;&#x5F55;&#x5F53;&#x524D;&#x5806;&#x5185;&#x5B58;&#x5206;&#x914D;&#x7684;&#x5B57;&#x8282;&#x6570;</span>
+        b.start = time.Now()                <span class="hljs-comment">// &#x8BB0;&#x5F55;&#x6D4B;&#x8BD5;&#x542F;&#x52A8;&#x65F6;&#x95F4;</span>
+        b.timerOn = <span class="hljs-literal">true</span>                   <span class="hljs-comment">// &#x6807;&#x8BB0;&#x8BA1;&#x65F6;&#x6807;&#x5FD7;</span>
+    }
+}
+</code></pre>
+<p>StartTimer()&#x8D1F;&#x8D23;&#x542F;&#x52A8;&#x8BA1;&#x65F6;&#xFF0C;&#x5E76;&#x8BB0;&#x5F55;&#x5F53;&#x524D;&#x5185;&#x5B58;&#x5206;&#x914D;&#x60C5;&#x51B5;&#xFF0C;&#x4E0D;&#x7BA1;&#x662F;&#x5426;&#x6709;&#x201C;-benchmem&#x201D;&#x53C2;&#x6570;&#xFF0C;&#x5185;&#x5B58;&#x90FD;&#x4F1A;&#x88AB;&#x7EDF;&#x8BA1;&#xFF0C;&#x53C2;&#x6570;&#x53EA;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x8981;&#x5728;&#x7ED3;&#x679C;&#x4E2D;&#x8F93;&#x51FA;&#x3002;</p>
+<h3 id="&#x505C;&#x6B62;&#x8BA1;&#x65F6;&#xFF1A;bstoptimer">&#x505C;&#x6B62;&#x8BA1;&#x65F6;&#xFF1A;B.StopTimer()</h3>
+<p>StopTimer()&#x8D1F;&#x8D23;&#x505C;&#x6B62;&#x8BA1;&#x65F6;&#xFF0C;&#x5E76;&#x7D2F;&#x52A0;&#x76F8;&#x5E94;&#x7684;&#x7EDF;&#x8BA1;&#x503C;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (b *B) StopTimer() {
+    <span class="hljs-keyword">if</span> b.timerOn {
+        b.duration += time.Since(b.start)                   <span class="hljs-comment">// &#x7D2F;&#x52A0;&#x6D4B;&#x8BD5;&#x8017;&#x65F6;</span>
+        runtime.ReadMemStats(&amp;memStats)                     <span class="hljs-comment">// &#x8BFB;&#x53D6;&#x5F53;&#x524D;&#x5806;&#x5185;&#x5B58;&#x5206;&#x914D;&#x4FE1;&#x606F;</span>
+        b.netAllocs += memStats.Mallocs - b.startAllocs     <span class="hljs-comment">// &#x7D2F;&#x52A0;&#x5806;&#x5185;&#x5B58;&#x5206;&#x914D;&#x7684;&#x5BF9;&#x8C61;&#x6570;</span>
+        b.netBytes += memStats.TotalAlloc - b.startBytes    <span class="hljs-comment">// &#x7D2F;&#x52A0;&#x5806;&#x5185;&#x5B58;&#x5206;&#x914D;&#x7684;&#x5B57;&#x8282;&#x6570;</span>
+        b.timerOn = <span class="hljs-literal">false</span>                                  <span class="hljs-comment">// &#x6807;&#x8BB0;&#x8BA1;&#x65F6;&#x6807;&#x5FD7;</span>
+    }
+}
+</code></pre>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;StopTimer()&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x6D4B;&#x8BD5;&#x7ED3;&#x675F;&#xFF0C;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x4E2D;&#x6709;&#x53EF;&#x80FD;&#x6709;&#x591A;&#x4E2A;&#x7EDF;&#x8BA1;&#x9636;&#x6BB5;&#xFF0C;&#x6240;&#x4EE5;&#x5176;&#x7EDF;&#x8BA1;&#x503C;&#x662F;&#x7D2F;&#x52A0;&#x7684;&#x3002;</p>
+<h3 id="&#x91CD;&#x7F6E;&#x8BA1;&#x65F6;&#xFF1A;bresettimer">&#x91CD;&#x7F6E;&#x8BA1;&#x65F6;&#xFF1A;B.ResetTimer()</h3>
+<p>ResetTimer()&#x7528;&#x4E8E;&#x91CD;&#x7F6E;&#x8BA1;&#x65F6;&#x5668;&#xFF0C;&#x76F8;&#x5E94;&#x7684;&#x4E5F;&#x4F1A;&#x628A;&#x5176;&#x4ED6;&#x7EDF;&#x8BA1;&#x503C;&#x4E5F;&#x91CD;&#x7F6E;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (b *B) ResetTimer() {
+    <span class="hljs-keyword">if</span> b.timerOn {
+        runtime.ReadMemStats(&amp;memStats)     <span class="hljs-comment">// &#x8BFB;&#x53D6;&#x5F53;&#x524D;&#x5806;&#x5185;&#x5B58;&#x5206;&#x914D;&#x4FE1;&#x606F;</span>
+        b.startAllocs = memStats.Mallocs    <span class="hljs-comment">// &#x8BB0;&#x5F55;&#x5F53;&#x524D;&#x5806;&#x5185;&#x5B58;&#x5206;&#x914D;&#x7684;&#x5BF9;&#x8C61;&#x6570;</span>
+        b.startBytes = memStats.TotalAlloc  <span class="hljs-comment">// &#x8BB0;&#x5F55;&#x5F53;&#x524D;&#x5806;&#x5185;&#x5B58;&#x5206;&#x914D;&#x7684;&#x5B57;&#x8282;&#x6570;</span>
+        b.start = time.Now()                <span class="hljs-comment">// &#x8BB0;&#x5F55;&#x6D4B;&#x8BD5;&#x542F;&#x52A8;&#x65F6;&#x95F4;</span>
+    }
+    b.duration = <span class="hljs-number">0</span>                          <span class="hljs-comment">// &#x6E05;&#x7A7A;&#x8017;&#x65F6;</span>
+    b.netAllocs = <span class="hljs-number">0</span>                         <span class="hljs-comment">// &#x6E05;&#x7A7A;&#x5185;&#x5B58;&#x5206;&#x914D;&#x5BF9;&#x8C61;&#x6570;</span>
+    b.netBytes = <span class="hljs-number">0</span>                          <span class="hljs-comment">// &#x6E05;&#x7A7A;&#x5185;&#x5B58;&#x5206;&#x914D;&#x5B57;&#x8282;&#x6570;</span>
+}
+</code></pre>
+<p>ResetTimer()&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#xFF0C;&#x5178;&#x578B;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x662F;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x4E2D;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x90E8;&#x5206;&#x8017;&#x65F6;&#x8F83;&#x957F;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x540E;&#x518D;&#x5F00;&#x59CB;&#x8BA1;&#x65F6;&#x3002;</p>
+<h3 id="&#x8BBE;&#x7F6E;&#x5904;&#x7406;&#x5B57;&#x8282;&#x6570;&#xFF1A;bsetbytesn-int64">&#x8BBE;&#x7F6E;&#x5904;&#x7406;&#x5B57;&#x8282;&#x6570;&#xFF1A;B.SetBytes(n int64)</h3>
+<pre><code class="lang-go"><span class="hljs-comment">// SetBytes records the number of bytes processed in a single operation.</span>
+<span class="hljs-comment">// If this is called, the benchmark will report ns/op and MB/s.</span>
+<span class="hljs-keyword">func</span> (b *B) SetBytes(n <span class="hljs-keyword">int64</span>) {
+    b.bytes = n
+}
+</code></pre>
+<p>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x542B;&#x7CCA;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x901A;&#x8FC7;&#x5176;&#x51FD;&#x6570;&#x8BF4;&#x660E;&#x5F88;&#x96BE;&#x660E;&#x767D;&#x5176;&#x4F5C;&#x7528;&#x3002;</p>
+<p>&#x5176;&#x5B9E;&#x5B83;&#x662F;&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x5355;&#x6B21;&#x8FED;&#x4EE3;&#x5904;&#x7406;&#x7684;&#x5B57;&#x8282;&#x6570;&#xFF0C;&#x4E00;&#x65E6;&#x8BBE;&#x7F6E;&#x4E86;&#x8FD9;&#x4E2A;&#x5B57;&#x8282;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x8F93;&#x51FA;&#x62A5;&#x544A;&#x4E2D;&#x5C06;&#x4F1A;&#x5448;&#x73B0;&#x201C;xxx MB/s&#x201D;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x7528;&#x6765;&#x8868;&#x793A;&#x5F85;&#x6D4B;&#x51FD;&#x6570;&#x5904;&#x7406;&#x5B57;&#x8282;&#x7684;&#x6027;&#x80FD;&#x3002;&#x5F85;&#x6D4B;&#x51FD;&#x6570;&#x6BCF;&#x6B21;&#x5904;&#x7406;&#x591A;&#x5C11;&#x5B57;&#x8282;&#x6570;&#x53EA;&#x6709;&#x7528;&#x6237;&#x6E05;&#x695A;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x7528;&#x6237;&#x8BBE;&#x7F6E;&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x5F85;&#x6D4B;&#x51FD;&#x6570;&#x6BCF;&#x6B21;&#x6267;&#x884C;&#x5904;&#x7406;1M&#x6570;&#x636E;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x770B;&#x5F85;&#x6D4B;&#x51FD;&#x6570;&#x5904;&#x7406;&#x6570;&#x636E;&#x7684;&#x6027;&#x80FD;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5728;&#x6D4B;&#x8BD5;&#x4E2D;&#x8BBE;&#x7F6E;SetByte(1024 *1024)&#xFF0C;&#x5047;&#x5982;&#x5F85;&#x6D4B;&#x51FD;&#x6570;&#x9700;&#x8981;&#x6267;&#x884C;1s&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x7ED3;&#x679C;&#x4E2D;&#x5C06;&#x4F1A;&#x51FA;&#x73B0; &#x201C;1 MB/s&#x201D;&#xFF08;&#x7EA6;&#x7B49;&#x4E8E;&#xFF09;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> BenchmarkSetBytes(b *testing.B) {
+    b.SetBytes(<span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>)
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        time.Sleep(<span class="hljs-number">1</span> * time.Second) <span class="hljs-comment">// &#x6A21;&#x62DF;&#x5F85;&#x6D4B;&#x51FD;&#x6570;</span>
+    }
+}
+</code></pre>
+<p>&#x6253;&#x5370;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code>E:\OpenSource\GitHub\RainbowMango\GoExpertProgrammingSourceCode\GoExpert\src\gotest&gt;go test -bench SetBytes benchmark_test.go
+BenchmarkSetBytes-4            1        1010392800 ns/op           1.04 MB/s
+PASS
+ok      command-line-arguments  1.412s
+</code></pre><p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6D4B;&#x8BD5;&#x6267;&#x884C;&#x4E86;&#x4E00;&#x6B21;&#xFF0C;&#x82B1;&#x8D39;&#x65F6;&#x95F4;&#x7EA6;1S&#xFF0C;&#x6570;&#x636E;&#x5904;&#x7406;&#x80FD;&#x529B;&#x7EA6;&#x4E3A;1MB/s&#x3002;</p>
+<h3 id="&#x62A5;&#x544A;&#x5185;&#x5B58;&#x4FE1;&#x606F;&#xFF1A;">&#x62A5;&#x544A;&#x5185;&#x5B58;&#x4FE1;&#x606F;&#xFF1A;</h3>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (b *B) ReportAllocs() {
+    b.showAllocResult = <span class="hljs-literal">true</span>
+}
+</code></pre>
+<p>ReportAllocs() &#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x662F;&#x5426;&#x6253;&#x5370;&#x5185;&#x5B58;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#xFF0C;&#x4E0E;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x201C;-benchmem&#x201D;&#x4E00;&#x81F4;&#xFF0C;&#x4F46;&#x672C;&#x65B9;&#x6CD5;&#x53EA;&#x4F5C;&#x7528;&#x4E8E;&#x5355;&#x4E2A;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x3002;</p>
+<h2 id="&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x662F;&#x5982;&#x4F55;&#x542F;&#x52A8;&#x7684;">&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x662F;&#x5982;&#x4F55;&#x542F;&#x52A8;&#x7684;</h2>
+<p>&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x8981;&#x7ECF;&#x8FC7;&#x591A;&#x6B21;&#x8FED;&#x4EE3;&#xFF0C;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x4E0D;&#x540C;&#x7684;b.N&#x503C;&#xFF0C;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x4E00;&#x6B21;&#xFF0C;&#x8DDF;&#x636E;&#x6B64;&#x6B21;&#x8FED;&#x4EE3;&#x7684;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x6765;&#x5206;&#x6790;&#x8981;&#x4E0D;&#x8981;&#x7EE7;&#x7EED;&#x4E0B;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x5148;&#x770B;&#x4E00;&#x4E0B;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x65F6;&#x6240;&#x7528;&#x5230;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;runN():</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (b *B) runN(n <span class="hljs-keyword">int</span>) {
+    b.N = n                       <span class="hljs-comment">// &#x6307;&#x5B9A;B.N</span>
+    b.ResetTimer()                <span class="hljs-comment">// &#x6E05;&#x7A7A;&#x7EDF;&#x8BA1;&#x6570;&#x636E;</span>
+    b.StartTimer()                <span class="hljs-comment">// &#x5F00;&#x59CB;&#x8BA1;&#x65F6;</span>
+    b.benchFunc(b)                <span class="hljs-comment">// &#x6267;&#x884C;&#x6D4B;&#x8BD5;</span>
+    b.StopTimer()                 <span class="hljs-comment">// &#x505C;&#x6B62;&#x8BA1;&#x65F6;</span>
+}
+</code></pre>
+<p>&#x8BE5;&#x65B9;&#x6CD5;&#x6307;&#x5B9A;b.N&#x7684;&#x503C;&#xFF0C;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x4E0E;T.Run()&#x7C7B;&#x4F3C;&#xFF0C;B.Run()&#x4E5F;&#x7528;&#x4E8E;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5B50;&#x6D4B;&#x8BD5;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x7528;&#x6237;&#x7F16;&#x5199;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x90FD;&#x662F;&#x4F7F;&#x7528;Run()&#x65B9;&#x6CD5;&#x542F;&#x52A8;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x770B;&#x4E0B;B.Run()&#x7684;&#x4F2A;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (b *B) Run(name <span class="hljs-keyword">string</span>, f <span class="hljs-keyword">func</span>(b *B)) <span class="hljs-keyword">bool</span> {
+    sub := &amp;B{                          <span class="hljs-comment">// &#x65B0;&#x5EFA;&#x5B50;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x7ED3;&#x6784;</span>
+        common: common{
+            signal:  <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">bool</span>),
+            name:    name,
+            parent:  &amp;b.common,
+        },
+        benchFunc:  f,
+    }
+    <span class="hljs-keyword">if</span> sub.run1() { <span class="hljs-comment">// &#x5148;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x5B50;&#x6D4B;&#x8BD5;&#xFF0C;&#x5982;&#x679C;&#x5B50;&#x6D4B;&#x8BD5;&#x4E0D;&#x51FA;&#x9519;&#x4E14;&#x5B50;&#x6D4B;&#x8BD5;&#x6CA1;&#x6709;&#x5B50;&#x6D4B;&#x8BD5;&#x7684;&#x8BDD;&#x7EE7;&#x7EED;&#x6267;&#x884C;sub.run()</span>
+    sub.run()       <span class="hljs-comment">// run()&#x91CC;&#x51B3;&#x5B9A;&#x8981;&#x6267;&#x884C;&#x591A;&#x5C11;&#x6B21;runN()</span>
+    }
+    b.add(sub.result) <span class="hljs-comment">// &#x7D2F;&#x52A0;&#x7EDF;&#x8BA1;&#x7ED3;&#x679C;&#x5230;&#x7236;&#x6D4B;&#x8BD5;&#x4E2D;</span>
+    <span class="hljs-keyword">return</span> !sub.failed
+}
+</code></pre>
+<p>&#x6240;&#x6709;&#x7684;&#x6D4B;&#x8BD5;&#x90FD;&#x662F;&#x5148;&#x4F7F;&#x7528;run1()&#x65B9;&#x6CD5;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x6D4B;&#x8BD5;,run1()&#x65B9;&#x6CD5;&#x4E2D;&#x5B9E;&#x9645;&#x4E0A;&#x8C03;&#x7528;&#x4E86;runN(1)&#xFF0C;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x540E;&#x518D;&#x51B3;&#x5B9A;&#x8981;&#x4E0D;&#x8981;&#x7EE7;&#x7EED;&#x8FED;&#x4EE3;&#x3002;</p>
+<p>&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x5B9E;&#x9645;&#x4E0A;&#x4EE5;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x7684;&#x6570;&#x636E;&#x4E3A;&#x51C6;&#xFF0C;&#x5F53;&#x7136;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x8FED;&#x4EE3;&#x5F80;&#x5F80;&#x610F;&#x5473;&#x7740;b.N&#x66F4;&#x5927;&#xFF0C;&#x6D4B;&#x8BD5;&#x51C6;&#x786E;&#x6027;&#x76F8;&#x5BF9;&#x66F4;&#x9AD8;&#x3002;</p>
+<h2 id="bn&#x662F;&#x5982;&#x4F55;&#x8C03;&#x6574;&#x7684;&#xFF1F;">B.N&#x662F;&#x5982;&#x4F55;&#x8C03;&#x6574;&#x7684;&#xFF1F;</h2>
+<p>B.launch()&#x65B9;&#x6CD5;&#x91CC;&#x6700;&#x7EC8;&#x51B3;&#x5B9A;B.N&#x7684;&#x503C;&#x3002;&#x6211;&#x4EEC;&#x770B;&#x4E0B;&#x4F2A;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (b *B) launch() { <span class="hljs-comment">// &#x6B64;&#x65B9;&#x6CD5;&#x81EA;&#x52A8;&#x6D4B;&#x7B97;&#x6267;&#x884C;&#x6B21;&#x6570;&#xFF0C;&#x4F46;&#x8C03;&#x7528;&#x524D;&#x5FC5;&#x987B;&#x8C03;&#x7528;run1&#x4EE5;&#x4FBF;&#x81EA;&#x52A8;&#x8BA1;&#x7B97;&#x6B21;&#x6570;</span>
+    d := b.benchTime
+    <span class="hljs-keyword">for</span> n := <span class="hljs-number">1</span>; !b.failed &amp;&amp; b.duration &lt; d &amp;&amp; n &lt; <span class="hljs-number">1e9</span>; { <span class="hljs-comment">// &#x6700;&#x5C11;&#x6267;&#x884C;b.benchTime&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A;1s&#xFF09;&#x65F6;&#x95F4;&#xFF0C;&#x6700;&#x591A;&#x6267;&#x884C;1e9&#x6B21;</span>
+        last := n
+        n = <span class="hljs-keyword">int</span>(d.Nanoseconds()) <span class="hljs-comment">// &#x9884;&#x6D4B;&#x63A5;&#x4E0B;&#x6765;&#x8981;&#x6267;&#x884C;&#x591A;&#x5C11;&#x6B21;&#xFF0C;b.benchTime/&#x6BCF;&#x4E2A;&#x64CD;&#x4F5C;&#x8017;&#x65F6;</span>
+        <span class="hljs-keyword">if</span> nsop := b.nsPerOp(); nsop != <span class="hljs-number">0</span> {
+            n /= <span class="hljs-keyword">int</span>(nsop)
+        }
+        n = max(min(n+n/<span class="hljs-number">5</span>, <span class="hljs-number">100</span>*last), last+<span class="hljs-number">1</span>) <span class="hljs-comment">// &#x907F;&#x514D;&#x589E;&#x957F;&#x8F83;&#x5FEB;&#xFF0C;&#x5148;&#x589E;&#x957F;20%&#xFF0C;&#x81F3;&#x5C11;&#x589E;&#x957F;1&#x6B21;</span>
+        n = roundUp(n) <span class="hljs-comment">// &#x4E0B;&#x6B21;&#x8FED;&#x4EE3;&#x6B21;&#x6570;&#x5411;&#x4E0A;&#x53D6;&#x6574;&#x5230;10&#x7684;&#x6307;&#x6570;&#xFF0C;&#x65B9;&#x4FBF;&#x9605;&#x8BFB;</span>
+        b.runN(n)
+    }
+}
+</code></pre>
+<p>&#x4E0D;&#x8003;&#x8651;&#x7A0B;&#x5E8F;&#x51FA;&#x9519;&#xFF0C;&#x800C;&#x4E14;&#x7528;&#x6237;&#x6CA1;&#x6709;&#x4E3B;&#x52A8;&#x505C;&#x6B62;&#x6D4B;&#x8BD5;&#x7684;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x6BCF;&#x4E2A;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x81F3;&#x5C11;&#x8981;&#x6267;&#x884C;b.benchTime&#x957F;&#x7684;&#x79D2;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A;1s&#x3002;&#x5148;&#x6267;&#x884C;&#x4E00;&#x904D;&#x7684;&#x610F;&#x4E49;&#x5728;&#x4E8E;&#x770B;&#x7528;&#x6237;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x8981;&#x82B1;&#x8D39;&#x591A;&#x957F;&#x65F6;&#x95F4;&#xFF0C;&#x5982;&#x679C;&#x65F6;&#x95F4;&#x8F83;&#x77ED;&#xFF0C;&#x90A3;&#x4E48;b.N&#x503C;&#x8981;&#x8DB3;&#x591F;&#x5927;&#x624D;&#x53EF;&#x4EE5;&#x6D4B;&#x5F97;&#x66F4;&#x7CBE;&#x786E;&#xFF0C;&#x5982;&#x679C;&#x65F6;&#x95F4;&#x8F83;&#x957F;&#xFF0C;b.N&#x503C;&#x76F8;&#x5E94;&#x7684;&#x4F1A;&#x51CF;&#x5C11;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x5F71;&#x54CD;&#x6D4B;&#x8BD5;&#x6548;&#x7387;&#x3002;</p>
+<p>&#x6700;&#x7EC8;&#x7684;b.N&#x4F1A;&#x88AB;&#x5B9A;&#x683C;&#x5728;&#x67D0;&#x4E2A;10&#x7684;&#x6307;&#x6570;&#x7EA7;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x9605;&#x8BFB;&#x6D4B;&#x8BD5;&#x62A5;&#x544A;&#x3002;</p>
+<h2 id="&#x5185;&#x5B58;&#x662F;&#x5982;&#x4F55;&#x7EDF;&#x8BA1;&#x7684;&#xFF1F;">&#x5185;&#x5B58;&#x662F;&#x5982;&#x4F55;&#x7EDF;&#x8BA1;&#x7684;&#xFF1F;</h2>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x5728;&#x6D4B;&#x8BD5;&#x5F00;&#x59CB;&#x65F6;&#xFF0C;&#x4F1A;&#x628A;&#x5F53;&#x524D;&#x5185;&#x5B58;&#x503C;&#x8BB0;&#x5165;&#x5230;b.startAllocs&#x548C;b.startBytes&#x4E2D;&#xFF0C;&#x6D4B;&#x8BD5;&#x7ED3;&#x675F;&#x65F6;&#xFF0C;&#x4F1A;&#x7528;&#x6700;&#x7EC8;&#x5185;&#x5B58;&#x503C;&#x4E0E;&#x5F00;&#x59CB;&#x65F6;&#x7684;&#x5185;&#x5B58;&#x503C;&#x76F8;&#x51CF;&#xFF0C;&#x5F97;&#x5230;&#x51C0;&#x589E;&#x52A0;&#x7684;&#x5185;&#x5B58;&#x503C;&#xFF0C;&#x5E76;&#x8BB0;&#x5165;&#x5230;b.netAllocs&#x548C;b.netBytes&#x4E2D;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7ED3;&#x675F;&#xFF0C;&#x4F1A;&#x628A;&#x7ED3;&#x679C;&#x4FDD;&#x5B58;&#x5230;BenchmarkResult&#x5BF9;&#x8C61;&#x91CC;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x91CC;&#x4FDD;&#x5B58;&#x4E86;&#x8F93;&#x51FA;&#x62A5;&#x544A;&#x6240;&#x5FC5;&#x9700;&#x7684;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> BenchmarkResult <span class="hljs-keyword">struct</span> {
+    N         <span class="hljs-keyword">int</span>           <span class="hljs-comment">// &#x7528;&#x6237;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x7684;&#x6B21;&#x6570;</span>
+    T         time.Duration <span class="hljs-comment">// &#x6D4B;&#x8BD5;&#x8017;&#x65F6;</span>
+    Bytes     <span class="hljs-keyword">int64</span>         <span class="hljs-comment">// &#x7528;&#x6237;&#x4EE3;&#x7801;&#x6BCF;&#x6B21;&#x5904;&#x7406;&#x7684;&#x5B57;&#x8282;&#x6570;&#xFF0C;SetBytes()&#x8BBE;&#x7F6E;&#x7684;&#x503C;</span>
+    MemAllocs <span class="hljs-keyword">uint64</span>        <span class="hljs-comment">// &#x5185;&#x5B58;&#x5BF9;&#x8C61;&#x51C0;&#x589E;&#x52A0;&#x503C;</span>
+    MemBytes  <span class="hljs-keyword">uint64</span>        <span class="hljs-comment">// &#x5185;&#x5B58;&#x5B57;&#x8282;&#x51C0;&#x589E;&#x52A0;&#x503C;</span>
+}
+</code></pre>
+<p>&#x5176;&#x4E2D;MemAllocs&#x548C;MemBytes&#x5206;&#x522B;&#x5BF9;&#x5E94;b.netAllocs&#x548C;b.netBytes&#x3002;</p>
+<p>&#x90A3;&#x4E48;&#x6700;&#x7EC8;&#x7EDF;&#x8BA1;&#x65F6;&#x53EA;&#x9700;&#x8981;&#x628A;&#x51C0;&#x589E;&#x52A0;&#x503C;&#x9664;&#x4EE5;b.N&#x5373;&#x53EF;&#x5F97;&#x5230;&#x6BCF;&#x6B21;&#x65B0;&#x589E;&#x591A;&#x5C11;&#x5185;&#x5B58;&#x4E86;&#x3002;</p>
+<p>&#x6BCF;&#x4E2A;&#x64CD;&#x4F5C;&#x5185;&#x5B58;&#x5BF9;&#x8C61;&#x65B0;&#x589E;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (r BenchmarkResult) AllocsPerOp() <span class="hljs-keyword">int64</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">int64</span>(r.MemAllocs) / <span class="hljs-keyword">int64</span>(r.N)
+}
+</code></pre>
+<p>&#x6BCF;&#x4E2A;&#x64CD;&#x4F5C;&#x5185;&#x5B58;&#x5B57;&#x8282;&#x6570;&#x65B0;&#x589E;&#x503C;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (r BenchmarkResult) AllocedBytesPerOp() <span class="hljs-keyword">int64</span> {
+    <span class="hljs-keyword">if</span> r.N &lt;= <span class="hljs-number">0</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">int64</span>(r.MemBytes) / <span class="hljs-keyword">int64</span>(r.N)
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="7.3.3-unit.html" class="navigation navigation-prev " aria-label="Previous page: 7.3.3 单元测试实现原理">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="7.3.5-example.html" class="navigation navigation-next " aria-label="Next page: 7.3.5 示例测试实现原理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"7.3.4 性能测试实现原理","level":"1.9.3.4","depth":3,"next":{"title":"7.3.5 示例测试实现原理","level":"1.9.3.5","depth":3,"path":"chapter07/7.3.5-example.md","ref":"chapter07/7.3.5-example.md","articles":[]},"previous":{"title":"7.3.3 单元测试实现原理","level":"1.9.3.3","depth":3,"path":"chapter07/7.3.3-unit.md","ref":"chapter07/7.3.3-unit.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter07/7.3.4-benchmark.md","mtime":"2023-01-21T01:38:08.442Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-21T01:43:26.952Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

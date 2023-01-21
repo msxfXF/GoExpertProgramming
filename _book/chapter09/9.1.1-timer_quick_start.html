@@ -1,0 +1,1535 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>9.1.1 快速开始 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="9.1.2-timer_principle.html" />
+    
+    
+    <link rel="prev" href="9.1-foreword.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../FOREWORD.html">
+            
+                <a href="../FOREWORD.html">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../chapter01/">
+            
+                <a href="../chapter01/">
+            
+                    
+                    第一章：常见数据结构实现原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../chapter01/1.1-chan.html">
+            
+                <a href="../chapter01/1.1-chan.html">
+            
+                    
+                    1.1 chan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../chapter01/1.2-slice.html">
+            
+                <a href="../chapter01/1.2-slice.html">
+            
+                    
+                    1.2 slice
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../chapter01/1.3-map.html">
+            
+                <a href="../chapter01/1.3-map.html">
+            
+                    
+                    1.3 map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../chapter01/1.4-struct.html">
+            
+                <a href="../chapter01/1.4-struct.html">
+            
+                    
+                    1.4 struct
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../chapter01/1.5-iota.html">
+            
+                <a href="../chapter01/1.5-iota.html">
+            
+                    
+                    1.5 iota
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../chapter01/1.6-string.html">
+            
+                <a href="../chapter01/1.6-string.html">
+            
+                    
+                    1.6 string
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../chapter02/">
+            
+                <a href="../chapter02/">
+            
+                    
+                    第二章：常见控制结构实现原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../chapter02/2.1-defer.html">
+            
+                <a href="../chapter02/2.1-defer.html">
+            
+                    
+                    2.1 defer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="../chapter02/2.1.1-defer-recover.html">
+            
+                <a href="../chapter02/2.1.1-defer-recover.html">
+            
+                    
+                    2.1.1 defer 陷阱
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../chapter02/2.2-select.html">
+            
+                <a href="../chapter02/2.2-select.html">
+            
+                    
+                    2.2 select
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../chapter02/2.3-range.html">
+            
+                <a href="../chapter02/2.3-range.html">
+            
+                    
+                    2.3 range
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../chapter02/2.4-mutex.html">
+            
+                <a href="../chapter02/2.4-mutex.html">
+            
+                    
+                    2.4 mutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../chapter02/2.5-rwmutex.html">
+            
+                <a href="../chapter02/2.5-rwmutex.html">
+            
+                    
+                    2.5 rwmutex
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../chapter03/">
+            
+                <a href="../chapter03/">
+            
+                    
+                    第三章：协程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../chapter03/3.1-go_schedule.html">
+            
+                <a href="../chapter03/3.1-go_schedule.html">
+            
+                    
+                    3.1 协程调度
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../chapter04/">
+            
+                <a href="../chapter04/">
+            
+                    
+                    第四章：内存管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../chapter04/4.1-memory_alloc.html">
+            
+                <a href="../chapter04/4.1-memory_alloc.html">
+            
+                    
+                    4.1 内存分配原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../chapter04/4.2-garbage_collection.html">
+            
+                <a href="../chapter04/4.2-garbage_collection.html">
+            
+                    
+                    4.2 垃圾回收原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../chapter04/4.3-escape_analysis.html">
+            
+                <a href="../chapter04/4.3-escape_analysis.html">
+            
+                    
+                    4.3 逃逸分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../chapter05/">
+            
+                <a href="../chapter05/">
+            
+                    
+                    第五章：并发控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../chapter05/5.1-channel.html">
+            
+                <a href="../chapter05/5.1-channel.html">
+            
+                    
+                    5.1 Channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../chapter05/5.2-waitgroup.html">
+            
+                <a href="../chapter05/5.2-waitgroup.html">
+            
+                    
+                    5.2 WaitGroup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../chapter05/5.3-context.html">
+            
+                <a href="../chapter05/5.3-context.html">
+            
+                    
+                    5.3 Context
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../chapter06/">
+            
+                <a href="../chapter06/">
+            
+                    
+                    第六章：反射
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../chapter06/6.1-reflect.html">
+            
+                <a href="../chapter06/6.1-reflect.html">
+            
+                    
+                    6.1 反射机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../chapter07/">
+            
+                <a href="../chapter07/">
+            
+                    
+                    第七章：go test
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../chapter07/7.1-foreword.html">
+            
+                <a href="../chapter07/7.1-foreword.html">
+            
+                    
+                    7.1 快速开始
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../chapter07/7.1.1-unit_test.html">
+            
+                <a href="../chapter07/7.1.1-unit_test.html">
+            
+                    
+                    7.1.1 单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.2" data-path="../chapter07/7.1.2-benchmark_test.html">
+            
+                <a href="../chapter07/7.1.2-benchmark_test.html">
+            
+                    
+                    7.1.2 性能测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.1.3" data-path="../chapter07/7.1.3-example_test.html">
+            
+                <a href="../chapter07/7.1.3-example_test.html">
+            
+                    
+                    7.1.3 示例测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../chapter07/7.2-foreword.html">
+            
+                <a href="../chapter07/7.2-foreword.html">
+            
+                    
+                    7.2 进阶测试
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="../chapter07/7.2.1-sub_test.html">
+            
+                <a href="../chapter07/7.2.1-sub_test.html">
+            
+                    
+                    7.2.1 子测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="../chapter07/7.2.2-main_test.html">
+            
+                <a href="../chapter07/7.2.2-main_test.html">
+            
+                    
+                    7.2.2 Main测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../chapter07/7.3-foreword.html">
+            
+                <a href="../chapter07/7.3-foreword.html">
+            
+                    
+                    7.3 实现原理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.3.1" data-path="../chapter07/7.3.1-common.html">
+            
+                <a href="../chapter07/7.3.1-common.html">
+            
+                    
+                    7.3.1 testing.common公共类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.2" data-path="../chapter07/7.3.2-tb_interface.html">
+            
+                <a href="../chapter07/7.3.2-tb_interface.html">
+            
+                    
+                    7.3.2 testing.TB接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.3" data-path="../chapter07/7.3.3-unit.html">
+            
+                <a href="../chapter07/7.3.3-unit.html">
+            
+                    
+                    7.3.3 单元测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.4" data-path="../chapter07/7.3.4-benchmark.html">
+            
+                <a href="../chapter07/7.3.4-benchmark.html">
+            
+                    
+                    7.3.4 性能测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.5" data-path="../chapter07/7.3.5-example.html">
+            
+                <a href="../chapter07/7.3.5-example.html">
+            
+                    
+                    7.3.5 示例测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.6" data-path="../chapter07/7.3.6-main.html">
+            
+                <a href="../chapter07/7.3.6-main.html">
+            
+                    
+                    7.3.6 Main测试实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.7" data-path="../chapter07/7.3.7-go_test.html">
+            
+                <a href="../chapter07/7.3.7-go_test.html">
+            
+                    
+                    7.3.7 go test工作机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../chapter07/7.4-foreword.html">
+            
+                <a href="../chapter07/7.4-foreword.html">
+            
+                    
+                    7.4 go test参数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.4.1" data-path="../chapter07/7.4.1-parameter.html">
+            
+                <a href="../chapter07/7.4.1-parameter.html">
+            
+                    
+                    7.4.1 参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../chapter08/">
+            
+                <a href="../chapter08/">
+            
+                    
+                    第八章：httptest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    第九章：定时器
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="9.1-foreword.html">
+            
+                <a href="9.1-foreword.html">
+            
+                    
+                    9.1 Timer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.11.1.1" data-path="9.1.1-timer_quick_start.html">
+            
+                <a href="9.1.1-timer_quick_start.html">
+            
+                    
+                    9.1.1 快速开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.1.2" data-path="9.1.2-timer_principle.html">
+            
+                <a href="9.1.2-timer_principle.html">
+            
+                    
+                    9.1.2 实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="9.2-foreword.html">
+            
+                <a href="9.2-foreword.html">
+            
+                    
+                    9.2 Ticker
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.2.1" data-path="9.2.1-ticker_quick_start.html">
+            
+                <a href="9.2.1-ticker_quick_start.html">
+            
+                    
+                    9.2.1 快速开始
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2.2" data-path="9.2.2-ticker_principle.html">
+            
+                <a href="9.2.2-ticker_principle.html">
+            
+                    
+                    9.2.2 实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="9.3-foreword.html">
+            
+                <a href="9.3-foreword.html">
+            
+                    
+                    9.3 timer
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.3.1" data-path="9.3.1-timersproc_principle.html">
+            
+                <a href="9.3.1-timersproc_principle.html">
+            
+                    
+                    9.3.1 实现原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="9.4-foreword.html">
+            
+                <a href="9.4-foreword.html">
+            
+                    
+                    9.4 案例
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.4.1" data-path="9.4.1-ticker_leak_case.html">
+            
+                <a href="9.4.1-ticker_leak_case.html">
+            
+                    
+                    9.4.1 开源库资源泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../chapter10/">
+            
+                <a href="../chapter10/">
+            
+                    
+                    第十章：语法糖
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../chapter10/1-foreword.html">
+            
+                <a href="../chapter10/1-foreword.html">
+            
+                    
+                    10.1 简短变量声明
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1.1" data-path="../chapter10/1.1-warmup.html">
+            
+                <a href="../chapter10/1.1-warmup.html">
+            
+                    
+                    10.1.1 热身测验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.1.2" data-path="../chapter10/1.2-rules.html">
+            
+                <a href="../chapter10/1.2-rules.html">
+            
+                    
+                    10.1.2 使用规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../chapter10/2-variadic.html">
+            
+                <a href="../chapter10/2-variadic.html">
+            
+                    
+                    10.2 可变参函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../chapter11/">
+            
+                <a href="../chapter11/">
+            
+                    
+                    第十一章：GO语言版本管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../chapter11/1.1-install.html">
+            
+                <a href="../chapter11/1.1-install.html">
+            
+                    
+                    11.1 GO语言安装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../chapter11/1.2-uninstall.html">
+            
+                <a href="../chapter11/1.2-uninstall.html">
+            
+                    
+                    11.2 GO语言卸载
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../chapter12/">
+            
+                <a href="../chapter12/">
+            
+                    
+                    第十二章：GO依赖管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../chapter12/1-gopath.html">
+            
+                <a href="../chapter12/1-gopath.html">
+            
+                    
+                    12.1 GOPATH
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../chapter12/2-vendor.html">
+            
+                <a href="../chapter12/2-vendor.html">
+            
+                    
+                    12.2 vendor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../chapter12/3-foreword.html">
+            
+                <a href="../chapter12/3-foreword.html">
+            
+                    
+                    12.3 module
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.3.1" data-path="../chapter12/3.1-basic.html">
+            
+                <a href="../chapter12/3.1-basic.html">
+            
+                    
+                    12.3.1 基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.2" data-path="../chapter12/3.2-quickstart.html">
+            
+                <a href="../chapter12/3.2-quickstart.html">
+            
+                    
+                    12.3.2 快速实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.3" data-path="../chapter12/3.3-module-replace.html">
+            
+                <a href="../chapter12/3.3-module-replace.html">
+            
+                    
+                    12.3.3 replace指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.4" data-path="../chapter12/3.4-module-exclude.html">
+            
+                <a href="../chapter12/3.4-module-exclude.html">
+            
+                    
+                    12.3.4 exclude指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.5" data-path="../chapter12/3.5-module-indirect.html">
+            
+                <a href="../chapter12/3.5-module-indirect.html">
+            
+                    
+                    12.3.5 indirect含义
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.6" data-path="../chapter12/3.6-module-version.html">
+            
+                <a href="../chapter12/3.6-module-version.html">
+            
+                    
+                    12.3.6 版本选择机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.7" data-path="../chapter12/3.7-module-incompatible.html">
+            
+                <a href="../chapter12/3.7-module-incompatible.html">
+            
+                    
+                    12.3.7 incompatible
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.8" data-path="../chapter12/3.8-module-pseudo-version.html">
+            
+                <a href="../chapter12/3.8-module-pseudo-version.html">
+            
+                    
+                    12.3.8 伪版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.9" data-path="../chapter12/3.9-module-storage.html">
+            
+                <a href="../chapter12/3.9-module-storage.html">
+            
+                    
+                    12.3.9 依赖包存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3.10" data-path="../chapter12/3.10-module-go-sum.html">
+            
+                <a href="../chapter12/3.10-module-go-sum.html">
+            
+                    
+                    12.3.10 依赖包校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../appendix/">
+            
+                <a href="../appendix/">
+            
+                    
+                    附录一：编程陷阱
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../appendix/append.html">
+            
+                <a href="../appendix/append.html">
+            
+                    
+                    1 切片追加
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../appendix/unpinned.html">
+            
+                <a href="../appendix/unpinned.html">
+            
+                    
+                    2 循环变量绑定
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >9.1.1 快速开始</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x7B80;&#x4ECB;">&#x7B80;&#x4ECB;</h2>
+<p>Timer&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x4E00;&#x79CD;&#x5355;&#x4E00;&#x4E8B;&#x4EF6;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x5373;&#x7ECF;&#x8FC7;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x540E;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x901A;&#x8FC7;&#x5176;&#x672C;&#x8EAB;&#x63D0;&#x4F9B;&#x7684;channel&#x8FDB;&#x884C;&#x901A;&#x77E5;&#x3002;&#x4E4B;&#x6240;&#x4EE5;&#x53EB;&#x5355;&#x4E00;&#x4E8B;&#x4EF6;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;Timer&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x5C31;&#x7ED3;&#x675F;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;Timer&#x4E0E;Ticker&#x7684;&#x6700;&#x91CD;&#x8981;&#x7684;&#x533A;&#x522B;&#x4E4B;&#x4E00;&#x3002;</p>
+<p>&#x901A;&#x8FC7;timer.NewTimer(d Duration)&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;timer&#xFF0C;&#x53C2;&#x6570;&#x5373;&#x7B49;&#x5F85;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x65F6;&#x95F4;&#x5230;&#x6765;&#x540E;&#x7ACB;&#x5373;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x6E90;&#x7801;&#x5305;<code>src/time/sleep.go:Timer</code>&#x5B9A;&#x4E49;&#x4E86;Timer&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Timer <span class="hljs-keyword">struct</span> { <span class="hljs-comment">// Timer&#x4EE3;&#x8868;&#x4E00;&#x6B21;&#x5B9A;&#x65F6;&#xFF0C;&#x65F6;&#x95F4;&#x5230;&#x6765;&#x540E;&#x4EC5;&#x53D1;&#x751F;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;</span>
+    C &lt;-<span class="hljs-keyword">chan</span> Time
+    r runtimeTimer
+}
+</code></pre>
+<p>Timer&#x5BF9;&#x5916;&#x4EC5;&#x66B4;&#x9732;&#x4E00;&#x4E2A;channel&#xFF0C;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5230;&#x6765;&#x65F6;&#x5C31;&#x5F80;&#x8BE5;channel&#x4E2D;&#x5199;&#x5165;&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#xFF0C;&#x4E5F;&#x5373;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x672C;&#x8282;&#x6211;&#x4EEC;&#x4ECB;&#x7ECD;Timer&#x7684;&#x51E0;&#x4E2A;&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF0C;&#x540C;&#x65F6;&#x518D;&#x4ECB;&#x7ECD;&#x5176;&#x5BF9;&#x5916;&#x5448;&#x73B0;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="&#x4F7F;&#x7528;&#x573A;&#x666F;">&#x4F7F;&#x7528;&#x573A;&#x666F;</h2>
+<h3 id="&#x8BBE;&#x5B9A;&#x8D85;&#x65F6;&#x65F6;&#x95F4;">&#x8BBE;&#x5B9A;&#x8D85;&#x65F6;&#x65F6;&#x95F4;</h3>
+<p>&#x6709;&#x65F6;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x4ECE;&#x4E00;&#x4E2A;&#x7BA1;&#x9053;&#x4E2D;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x5728;&#x7BA1;&#x9053;&#x4E2D;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x8BA9;&#x7A0B;&#x5E8F;&#x6C38;&#x8FDC;&#x963B;&#x585E;&#x5728;&#x7BA1;&#x9053;&#x4E2D;&#xFF0C;&#x800C;&#x662F;&#x8BBE;&#x5B9A;&#x4E00;&#x4E2A;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x5728;&#x6B64;&#x65F6;&#x95F4;&#x6BB5;&#x4E2D;&#x5982;&#x679C;&#x7BA1;&#x9053;&#x4E2D;&#x8FD8;&#x662F;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x5230;&#x6765;&#xFF0C;&#x5219;&#x5224;&#x5B9A;&#x4E3A;&#x8D85;&#x65F6;&#x3002;</p>
+<p>Go&#x6E90;&#x7801;&#x5305;&#x4E2D;&#x6709;&#x5927;&#x91CF;&#x7C7B;&#x4F3C;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;&#x4ECE;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x4E2D;&#x7B49;&#x5F85;&#x6570;&#x636E;&#xFF0C;&#x5176;&#x7B80;&#x5355;&#x7684;&#x7528;&#x6CD5;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> WaitChannel(conn &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>) <span class="hljs-keyword">bool</span> {
+    timer := time.NewTimer(<span class="hljs-number">1</span> * time.Second)
+
+    <span class="hljs-keyword">select</span> {
+    <span class="hljs-keyword">case</span> &lt;- conn:
+        timer.Stop()
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+    <span class="hljs-keyword">case</span> &lt;- timer.C: <span class="hljs-comment">// &#x8D85;&#x65F6;</span>
+        <span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;WaitChannel timeout!&quot;</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+    }
+}
+</code></pre>
+<p>WaitChannel&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x68C0;&#x6D4B;&#x6307;&#x5B9A;&#x7684;&#x7BA1;&#x9053;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x6570;&#x636E;&#x5230;&#x6765;&#xFF0C;&#x901A;&#x8FC7;select&#x8BED;&#x53E5;&#x8F6E;&#x8BE2;conn&#x548C;timer.C&#x4E24;&#x4E2A;&#x7BA1;&#x9053;&#xFF0C;timer&#x4F1A;&#x5728;1s&#x540E;&#x5411;timer.C&#x5199;&#x5165;&#x6570;&#x636E;&#xFF0C;&#x5982;&#x679C;1s&#x5185;conn&#x8FD8;&#x6CA1;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x5219;&#x4F1A;&#x5224;&#x65AD;&#x4E3A;&#x8D85;&#x65F6;&#x3002;</p>
+<h3 id="&#x5EF6;&#x8FDF;&#x6267;&#x884C;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;">&#x5EF6;&#x8FDF;&#x6267;&#x884C;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;</h3>
+<p>&#x6709;&#x65F6;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#x5728;&#x4ECA;&#x540E;&#x7684;&#x67D0;&#x4E2A;&#x65F6;&#x523B;&#x6267;&#x884C;&#xFF0C;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> DelayFunction() {
+    timer := time.NewTimer(<span class="hljs-number">5</span> * time.Second)
+
+    <span class="hljs-keyword">select</span> {
+    <span class="hljs-keyword">case</span> &lt;- timer.C:
+        log.Println(<span class="hljs-string">&quot;Delayed 5s, start to do something.&quot;</span>)
+    }
+}
+</code></pre>
+<p>DelayFunction()&#x4F1A;&#x4E00;&#x76F4;&#x7B49;&#x5F85;timer&#x7684;&#x4E8B;&#x4EF6;&#x5230;&#x6765;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x540E;&#x9762;&#x7684;&#x65B9;&#x6CD5;(&#x6253;&#x5370;)&#x3002;</p>
+<h2 id="timer&#x5BF9;&#x5916;&#x63A5;&#x53E3;">Timer&#x5BF9;&#x5916;&#x63A5;&#x53E3;</h2>
+<h3 id="&#x521B;&#x5EFA;&#x5B9A;&#x65F6;&#x5668;">&#x521B;&#x5EFA;&#x5B9A;&#x65F6;&#x5668;</h3>
+<p>&#x4F7F;&#x7528;&#x65B9;&#x6CD5;<code>func NewTimer(d Duration) *Timer</code>&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x5373;&#x53EF;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Timer&#xFF0C;Timer&#x4E00;&#x7ECF;&#x521B;&#x5EFA;&#x4FBF;&#x5F00;&#x59CB;&#x8BA1;&#x65F6;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x989D;&#x5916;&#x7684;&#x542F;&#x52A8;&#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x521B;&#x5EFA;Timer&#x610F;&#x5473;&#x7740;&#x628A;&#x4E00;&#x4E2A;&#x8BA1;&#x65F6;&#x4EFB;&#x52A1;&#x4EA4;&#x7ED9;&#x7CFB;&#x7EDF;&#x5B88;&#x62A4;&#x534F;&#x7A0B;&#xFF0C;&#x8BE5;&#x534F;&#x7A0B;&#x7BA1;&#x7406;&#x7740;&#x6240;&#x6709;&#x7684;Timer&#xFF0C;&#x5F53;Timer&#x7684;&#x65F6;&#x95F4;&#x5230;&#x8FBE;&#x540E;&#x5411;Timer&#x7684;&#x7BA1;&#x9053;&#x4E2D;&#x53D1;&#x9001;&#x5F53;&#x524D;&#x7684;&#x65F6;&#x95F4;&#x4F5C;&#x4E3A;&#x4E8B;&#x4EF6;&#x3002;&#x8BE6;&#x7EC6;&#x7684;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x6211;&#x4EEC;&#x540E;&#x9762;&#x4F1A;&#x5355;&#x72EC;&#x4ECB;&#x7ECD;&#x3002;</p>
+<h3 id="&#x505C;&#x6B62;&#x5B9A;&#x65F6;&#x5668;">&#x505C;&#x6B62;&#x5B9A;&#x65F6;&#x5668;</h3>
+<p>Timer&#x521B;&#x5EFA;&#x540E;&#x53EF;&#x4EE5;&#x968F;&#x65F6;&#x505C;&#x6B62;&#xFF0C;&#x505C;&#x6B62;&#x8BA1;&#x65F6;&#x5668;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (t *Timer) Stop() <span class="hljs-keyword">bool</span>
+</code></pre>
+<p>&#x5176;&#x8FD4;&#x56DE;&#x503C;&#x4EE3;&#x8868;&#x5B9A;&#x65F6;&#x5668;&#x6709;&#x6CA1;&#x6709;&#x8D85;&#x65F6;&#xFF1A;</p>
+<ul>
+<li>true: &#x5B9A;&#x65F6;&#x5668;&#x8D85;&#x65F6;&#x524D;&#x505C;&#x6B62;&#xFF0C;&#x540E;&#x7EED;&#x4E0D;&#x4F1A;&#x518D;&#x6709;&#x4E8B;&#x4EF6;&#x53D1;&#x9001;&#xFF1B;</li>
+<li>false: &#x5B9A;&#x65F6;&#x5668;&#x8D85;&#x65F6;&#x540E;&#x505C;&#x6B62;&#xFF1B;</li>
+</ul>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x505C;&#x6B62;&#x8BA1;&#x65F6;&#x5668;&#x610F;&#x5473;&#x7740;&#x901A;&#x77E5;&#x7CFB;&#x7EDF;&#x5B88;&#x62A4;&#x534F;&#x7A0B;&#x79FB;&#x9664;&#x8BE5;&#x5B9A;&#x65F6;&#x5668;&#x3002;&#x8BE6;&#x7EC6;&#x7684;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x6211;&#x4EEC;&#x540E;&#x9762;&#x5355;&#x72EC;&#x4ECB;&#x7ECD;&#x3002;</p>
+<h3 id="&#x91CD;&#x7F6E;&#x5B9A;&#x65F6;&#x5668;">&#x91CD;&#x7F6E;&#x5B9A;&#x65F6;&#x5668;</h3>
+<p>&#x5DF2;&#x8FC7;&#x671F;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x6216;&#x8005;&#x5DF2;&#x505C;&#x6B62;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x91CD;&#x7F6E;&#x52A8;&#x4F5C;&#x91CD;&#x65B0;&#x6FC0;&#x6D3B;&#xFF0C;&#x91CD;&#x7F6E;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (t *Timer) Reset(d Duration) <span class="hljs-keyword">bool</span>
+</code></pre>
+<p>&#x91CD;&#x7F6E;&#x7684;&#x52A8;&#x4F5C;&#x5B9E;&#x8D28;&#x4E0A;&#x662F;&#x5148;&#x505C;&#x6389;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x518D;&#x542F;&#x52A8;&#x3002;&#x5176;&#x8FD4;&#x56DE;&#x503C;&#x4E5F;&#x5373;&#x505C;&#x6389;&#x8BA1;&#x65F6;&#x5668;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x91CD;&#x7F6E;&#x5B9A;&#x65F6;&#x5668;&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x4FEE;&#x6539;&#x8FD8;&#x672A;&#x8D85;&#x65F6;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x4F46;&#x6B63;&#x786E;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x8FD8;&#x662F;&#x9488;&#x5BF9;&#x5DF2;&#x8FC7;&#x671F;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x6216;&#x5DF2;&#x88AB;&#x505C;&#x6B62;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x540C;&#x65F6;&#x5176;&#x8FD4;&#x56DE;&#x503C;&#x4E5F;&#x4E0D;&#x53EF;&#x9760;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x5B58;&#x5728;&#x7684;&#x4EF7;&#x503C;&#x4EC5;&#x4EC5;&#x662F;&#x4E0E;&#x524D;&#x9762;&#x7248;&#x672C;&#x517C;&#x5BB9;&#x3002;</p>
+<p>&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;&#x91CD;&#x7F6E;&#x5B9A;&#x65F6;&#x5668;&#x610F;&#x5473;&#x7740;&#x901A;&#x77E5;&#x7CFB;&#x7EDF;&#x5B88;&#x62A4;&#x534F;&#x7A0B;&#x79FB;&#x9664;&#x8BE5;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x91CD;&#x65B0;&#x8BBE;&#x5B9A;&#x65F6;&#x95F4;&#x540E;&#xFF0C;&#x518D;&#x628A;&#x5B9A;&#x65F6;&#x5668;&#x4EA4;&#x7ED9;&#x5B88;&#x62A4;&#x534F;&#x7A0B;&#x3002;&#x8BE6;&#x7EC6;&#x7684;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#x6211;&#x4EEC;&#x540E;&#x9762;&#x5355;&#x72EC;&#x4ECB;&#x7ECD;&#x3002;</p>
+<h2 id="&#x7B80;&#x5355;&#x63A5;&#x53E3;">&#x7B80;&#x5355;&#x63A5;&#x53E3;</h2>
+<p>&#x524D;&#x9762;&#x4ECB;&#x7ECD;&#x4E86;Timer&#x7684;&#x6807;&#x51C6;&#x63A5;&#x53E3;&#xFF0C;time&#x5305;&#x540C;&#x65F6;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x7279;&#x5B9A;&#x7684;&#x573A;&#x666F;&#x4E0B;&#x53EF;&#x4EE5;&#x7B80;&#x5316;&#x4EE3;&#x7801;&#x3002;</p>
+<h3 id="after">After()</h3>
+<p>&#x6709;&#x65F6;&#x6211;&#x4EEC;&#x5C31;&#x662F;&#x60F3;&#x7B49;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x6CA1;&#x6709;&#x9700;&#x6C42;&#x63D0;&#x524D;&#x505C;&#x6B62;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x9700;&#x6C42;&#x590D;&#x7528;&#x8BE5;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x533F;&#x540D;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x3002;</p>
+<p><code>func After(d Duration) &lt;-chan Time</code>&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5B9A;&#x65F6;&#x5668;&#x7684;&#x7BA1;&#x9053;&#xFF0C;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x6240;&#x793A;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> AfterDemo() {
+    log.Println(time.Now())
+    &lt;- time.After(<span class="hljs-number">1</span> * time.Second)
+    log.Println(time.Now())
+}
+</code></pre>
+<p>AfterDemo()&#x4E24;&#x6761;&#x6253;&#x5370;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x4E3A;1s&#xFF0C;&#x5B9E;&#x9645;&#x8FD8;&#x662F;&#x4E00;&#x4E2A;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x4F46;&#x4EE3;&#x7801;&#x53D8;&#x5F97;&#x66F4;&#x7B80;&#x6D01;&#x3002;</p>
+<h3 id="afterfunc">AfterFunc()</h3>
+<p>&#x524D;&#x9762;&#x6211;&#x4EEC;&#x4F8B;&#x5B50;&#x4E2D;&#x8BB2;&#x5230;&#x5EF6;&#x8FDF;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x901A;&#x8FC7;AfterFunc&#x53EF;&#x4EE5;&#x66F4;&#x7B80;&#x6D01;&#x3002;AfterFunc&#x7684;&#x539F;&#x578B;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> AfterFunc(d Duration, f <span class="hljs-keyword">func</span>()) *Timer
+</code></pre>
+<p>&#x8BE5;&#x65B9;&#x6CD5;&#x5728;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x5230;&#x6765;&#x540E;&#x4F1A;&#x6267;&#x884C;&#x51FD;&#x6570;f&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> AfterFuncDemo() {
+    log.Println(<span class="hljs-string">&quot;AfterFuncDemo start: &quot;</span>, time.Now())
+    time.AfterFunc(<span class="hljs-number">1</span> * time.Second, <span class="hljs-keyword">func</span>() {
+        log.Println(<span class="hljs-string">&quot;AfterFuncDemo end: &quot;</span>, time.Now())
+    })
+
+    time.Sleep(<span class="hljs-number">2</span> * time.Second) <span class="hljs-comment">// &#x7B49;&#x5F85;&#x534F;&#x7A0B;&#x9000;&#x51FA;</span>
+}
+</code></pre>
+<p>AfterFuncDemo()&#x4E2D;&#x5148;&#x6253;&#x5370;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;AfterFunc&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x5B9A;&#x5668;&#xFF0C;&#x5E76;&#x6307;&#x5B9A;&#x5B9A;&#x65F6;&#x5668;&#x7ED3;&#x675F;&#x65F6;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x6253;&#x5370;&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#x3002;</p>
+<p>&#x4E0E;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x6240;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;time.AfterFunc()&#x662F;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5728;&#x51FD;&#x6570;&#x6700;&#x540E;sleep&#x7B49;&#x5F85;&#x6307;&#x5B9A;&#x7684;&#x534F;&#x7A0B;&#x9000;&#x51FA;&#xFF0C;&#x5426;&#x5219;&#x53EF;&#x80FD;&#x51FD;&#x6570;&#x7ED3;&#x675F;&#x65F6;&#x534F;&#x7A0B;&#x8FD8;&#x672A;&#x6267;&#x884C;&#x3002;</p>
+<h2 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h2>
+<p>&#x672C;&#x8282;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E86;Timer&#x7684;&#x5E38;&#x89C1;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x548C;&#x63A5;&#x53E3;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x7AE0;&#x8282;&#x518D;&#x4ECB;&#x7ECD;Ticker&#x3001;&#x4EE5;&#x53CA;&#x4E8C;&#x8005;&#x7684;&#x5B9E;&#x9645;&#x7EC6;&#x8282;&#x3002;</p>
+<p>Timer&#x5185;&#x5BB9;&#x603B;&#x7ED3;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>time.NewTimer(d)&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Timer;</li>
+<li>timer.Stop()&#x505C;&#x6389;&#x5F53;&#x524D;Timer;</li>
+<li>timer.Reset(d)&#x91CD;&#x7F6E;&#x5F53;&#x524D;Timer;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="9.1-foreword.html" class="navigation navigation-prev " aria-label="Previous page: 9.1 Timer">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="9.1.2-timer_principle.html" class="navigation navigation-next " aria-label="Next page: 9.1.2 实现原理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"9.1.1 快速开始","level":"1.11.1.1","depth":3,"next":{"title":"9.1.2 实现原理","level":"1.11.1.2","depth":3,"path":"chapter09/9.1.2-timer_principle.md","ref":"chapter09/9.1.2-timer_principle.md","articles":[]},"previous":{"title":"9.1 Timer","level":"1.11.1","depth":2,"path":"chapter09/9.1-foreword.md","ref":"chapter09/9.1-foreword.md","articles":[{"title":"9.1.1 快速开始","level":"1.11.1.1","depth":3,"path":"chapter09/9.1.1-timer_quick_start.md","ref":"chapter09/9.1.1-timer_quick_start.md","articles":[]},{"title":"9.1.2 实现原理","level":"1.11.1.2","depth":3,"path":"chapter09/9.1.2-timer_principle.md","ref":"chapter09/9.1.2-timer_principle.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"chapter09/9.1.1-timer_quick_start.md","mtime":"2023-01-21T01:38:08.453Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-01-21T01:43:26.952Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
